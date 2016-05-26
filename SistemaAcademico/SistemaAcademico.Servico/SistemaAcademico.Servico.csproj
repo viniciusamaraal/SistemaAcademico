@@ -105,6 +105,16 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SistemaAcademico.Dominio\SistemaAcademico.Dominio.csproj">
+      <Project>{40ba6b8e-1059-4efc-ba4e-06b1802c7ffd}</Project>
+      <Name>SistemaAcademico.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SistemaAcademico.Negocio\SistemaAcademico.Negocio.csproj">
+      <Project>{32bda887-9d21-4713-8110-a124597a6453}</Project>
+      <Name>SistemaAcademico.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
