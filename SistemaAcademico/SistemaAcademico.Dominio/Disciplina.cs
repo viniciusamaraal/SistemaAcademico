@@ -11,11 +11,7 @@ namespace SistemaAcademico.Dominio
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-
-        [ForeignKey(nameof(GradeCurricular))]
-        public int IdGradeCurricular { get; set; }
-
-        public virtual GradeCurricular GradeCurricular { get; set; }
-        public virtual ICollection<OfertaDisciplina> Ofertas { get; set; }
+        
+        public virtual ICollection<GradeDisciplina> GradesCurricularesDisciplina { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dominio
 {
-    public class GradeCurricular
+    public class Grade
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -16,6 +16,6 @@ namespace SistemaAcademico.Dominio
         public int IdCurso { get; set; }
 
         public virtual Curso Curso { get; set; }
-        public virtual ICollection<Disciplina> Disciplinas { get; set; }
+        public virtual ICollection<GradeDisciplina> GradesCurricularesDisciplina { get; set; }
     }
 }

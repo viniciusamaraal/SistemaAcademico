@@ -14,10 +14,10 @@ namespace SistemaAcademico.Dominio
         public DateTime Data { get; set; }
         public double Valor { get; set; }
 
-        [ForeignKey(nameof(OfertaDisciplina))]
-        public int IdOfertaDisciplina { get; set; }
+        [ForeignKey(nameof(OfertaGradeDisciplina))]
+        public int IdOfertaGradeDisciplina { get; set; }
 
-        public virtual OfertaDisciplina OfertaDisciplina { get; set; }
+        public virtual OfertaGradeDisciplina OfertaGradeDisciplina { get; set; }
 
         public virtual ICollection<AlunoAtividade> AlunoAtividades { get; set; }
     }

@@ -18,8 +18,20 @@ namespace SistemaAcademico.Dados
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<Contexto>());
+            Database.SetInitializer(new Inicializador());
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Properties<string>().Configure(c => c.HasColumnType("varchar"));
+
+            modelBuilder.Entity<Aluno>()
+                .HasRequired(c => c.Usuario)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Professor>()
+                .HasRequired(c => c.Usuario)
+                .WithMany()
+                .WillCascadeOnDelete(false);
         }
 
         public DbSet<Aluno> Aluno { get; set; }
@@ -27,11 +39,14 @@ namespace SistemaAcademico.Dados
         public DbSet<Atividade> Atividade { get; set; }
         public DbSet<Curso> Curso { get; set; }
         public DbSet<Disciplina> Disciplina { get; set; }
-        public DbSet<GradeCurricular> GradeCurricular { get; set; }
+        public DbSet<Grade> Grade { get; set; }
+        public DbSet<GradeDisciplina> GradeDisciplina { get; set; }
         public DbSet<Matricula> Matricula { get; set; }
-        public DbSet<OfertaDisciplina> OfertaDisciplina { get; set; }
+        public DbSet<MatriculaOfertaGradeDisciplina> MatriculaOfertaGradeDisciplina { get; set; }
+        public DbSet<OfertaGradeDisciplina> OfertaGradeDisciplina { get; set; }
         public DbSet<Professor> Professor { get; set; }
         public DbSet<RetificacaoFalta> RetificacaoFalta { get; set; }
         public DbSet<RevisaoAtividade> RevisaoAtividade { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
     }
 }

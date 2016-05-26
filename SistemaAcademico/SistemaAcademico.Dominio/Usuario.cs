@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dominio
 {
-    public class Curso
+    public class Usuario
     {
         public int Id { get; set; }
-
-        public string Nome { get; set; }
-
-        public virtual ICollection<Grade> Grade { get; set; }
+        public string Login { get; set; }
     }
 }

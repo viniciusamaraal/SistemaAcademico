@@ -10,7 +10,7 @@ namespace SistemaAcademico.Dados
     {
         public static void FazAlgo()
         {
-            new Contexto().GradeCurricular.ToList();
+            new Contexto().Grade.ToList();
         }
     }
 }

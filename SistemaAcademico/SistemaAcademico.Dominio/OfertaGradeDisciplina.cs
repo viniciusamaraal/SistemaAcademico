@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dominio
 {
-    public class OfertaDisciplina
+    public class OfertaGradeDisciplina
     {
         public int Id { get; set; }
 
-        [ForeignKey(nameof(Disciplina))]
-        public int IdDisciplina { get; set; }
+        [ForeignKey(nameof(GradeDisciplina))]
+        public int IdGradeDisciplina { get; set; }
 
         [ForeignKey(nameof(Professor))]
         public int IdProfessor { get; set; }
 
-        public virtual Disciplina Disciplina { get; set; }
+        public virtual GradeDisciplina GradeDisciplina { get; set; }
         public virtual Professor Professor { get; set; }
 
         public virtual ICollection<Atividade> Atividades { get; set; }
-        public virtual ICollection<MatriculaOfertaDisciplina> MatriculasOfertasDisciplina { get; set; }
+        public virtual ICollection<MatriculaOfertaGradeDisciplina> MatriculasOfertasDisciplina { get; set; }
     }
 }
