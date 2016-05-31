@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dados
 {
-    public class Class1
+    public class ClasseTeste
     {
         public static void FazAlgo()
         {
-            new Contexto().Grade.ToList();
+            new RepositorioDisciplina().Buscar().ToList();
         }
     }
 }

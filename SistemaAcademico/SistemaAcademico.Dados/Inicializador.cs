@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dados
 {
-    public class Inicializador : DropCreateDatabaseAlways<Contexto>
+    public class Inicializador : CreateDatabaseIfNotExists<ContextoEntity>
     {
-        protected override void Seed(Contexto contexto)
+        protected override void Seed(ContextoEntity contexto)
         {
             var curso = new List<Curso>
             {

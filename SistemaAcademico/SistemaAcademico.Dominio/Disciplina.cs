@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dominio
 {
-    public class Disciplina
+    [DataContract]
+    public class Disciplina : Base.Dominio
     {
-        public int Id { get; set; }
+        [DataMember]
         public string Nome { get; set; }
         
+        [IgnoreDataMember]
         public virtual ICollection<GradeDisciplina> GradesCurricularesDisciplina { get; set; }
     }
 }

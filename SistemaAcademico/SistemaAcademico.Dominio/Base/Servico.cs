@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dominio.Base
 {
-    public abstract class Servico
+    public abstract class Servico: Dominio
     {
-        public int Id { get; set; }
         public DateTime Data { get; set; }
         public StatusServico Status { get; set; }
         public string Justificativa { get; set; }

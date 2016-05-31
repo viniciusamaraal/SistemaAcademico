@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{32BDA887-9D21-4713-8110-A124597A6453}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{E2D15584-8F98-414E-A7D8-D704B941DF3E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SistemaAcademico.Negocio</RootNamespace>
-    <AssemblyName>SistemaAcademico.Negocio</AssemblyName>
+    <RootNamespace>Sandbox</RootNamespace>
+    <AssemblyName>Sandbox</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,25 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adaptador.cs" />
-    <Compile Include="Base\Gerenciador.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="GerenciadorDisciplina.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SistemaAcademico.Dados\SistemaAcademico.Dados.csproj">
-      <Project>{314d5104-0b92-425d-bcf1-6568ff77bd77}</Project>
-      <Name>SistemaAcademico.Dados</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SistemaAcademico.Dominio\SistemaAcademico.Dominio.csproj">
-      <Project>{40ba6b8e-1059-4efc-ba4e-06b1802c7ffd}</Project>
-      <Name>SistemaAcademico.Dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SistemaAcademico.Util\SistemaAcademico.Util.csproj">
-      <Project>{e3641991-5f37-45f8-aa5b-828c347ef1ad}</Project>
-      <Name>SistemaAcademico.Util</Name>
-    </ProjectReference>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

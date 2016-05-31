@@ -49,15 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Contexto.cs" />
+    <Compile Include="Base\Repositorio.cs" />
+    <Compile Include="ClasseTeste.cs" />
+    <Compile Include="ContextoFactory.cs" />
+    <Compile Include="ContextoEntity.cs" />
     <Compile Include="Inicializador.cs" />
+    <Compile Include="Contrato\IContexto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositorioDisciplina.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SistemaAcademico.Dominio\SistemaAcademico.Dominio.csproj">
       <Project>{40ba6b8e-1059-4efc-ba4e-06b1802c7ffd}</Project>
       <Name>SistemaAcademico.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SistemaAcademico.Util\SistemaAcademico.Util.csproj">
+      <Project>{e3641991-5f37-45f8-aa5b-828c347ef1ad}</Project>
+      <Name>SistemaAcademico.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

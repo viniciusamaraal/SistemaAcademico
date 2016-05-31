@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dominio
 {
-    public class Matricula
+    [DataContract]
+    public class Matricula : Base.Dominio
     {
-        public int Id { get; set; }
         public int Periodo { get; set; }
 
         [ForeignKey(nameof(Aluno))]

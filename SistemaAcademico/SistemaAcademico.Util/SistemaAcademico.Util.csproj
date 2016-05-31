@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{32BDA887-9D21-4713-8110-A124597A6453}</ProjectGuid>
+    <ProjectGuid>{E3641991-5F37-45F8-AA5B-828C347EF1AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SistemaAcademico.Negocio</RootNamespace>
-    <AssemblyName>SistemaAcademico.Negocio</AssemblyName>
+    <RootNamespace>SistemaAcademico.Util</RootNamespace>
+    <AssemblyName>SistemaAcademico.Util</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,25 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adaptador.cs" />
-    <Compile Include="Base\Gerenciador.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="GerenciadorDisciplina.cs" />
+    <Compile Include="Excecao\Dado\SalvarException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SistemaAcademico.Dados\SistemaAcademico.Dados.csproj">
-      <Project>{314d5104-0b92-425d-bcf1-6568ff77bd77}</Project>
-      <Name>SistemaAcademico.Dados</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SistemaAcademico.Dominio\SistemaAcademico.Dominio.csproj">
-      <Project>{40ba6b8e-1059-4efc-ba4e-06b1802c7ffd}</Project>
-      <Name>SistemaAcademico.Dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SistemaAcademico.Util\SistemaAcademico.Util.csproj">
-      <Project>{e3641991-5f37-45f8-aa5b-828c347ef1ad}</Project>
-      <Name>SistemaAcademico.Util</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

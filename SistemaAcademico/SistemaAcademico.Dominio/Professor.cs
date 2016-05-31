@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dominio
 {
-    public class Professor
+    [DataContract]
+    public class Professor : Base.Dominio
     {
-        public int Id { get; set; }
         public string Nome { get; set; }
 
         [ForeignKey(nameof(Usuario))]

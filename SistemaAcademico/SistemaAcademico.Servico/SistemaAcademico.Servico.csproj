@@ -85,7 +85,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adaptador.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Base\Controlador.cs" />
+    <Compile Include="Controllers\DisciplinaController.cs" />
+    <Compile Include="Filtro\TratamentoExcecaoAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -102,7 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +116,10 @@
     <ProjectReference Include="..\SistemaAcademico.Negocio\SistemaAcademico.Negocio.csproj">
       <Project>{32bda887-9d21-4713-8110-a124597a6453}</Project>
       <Name>SistemaAcademico.Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SistemaAcademico.Util\SistemaAcademico.Util.csproj">
+      <Project>{e3641991-5f37-45f8-aa5b-828c347ef1ad}</Project>
+      <Name>SistemaAcademico.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

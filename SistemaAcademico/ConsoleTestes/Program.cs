@@ -11,7 +11,7 @@ namespace SistemaAcademico.Console
     {
         static void Main(string[] args)
         {
-            Dados.Class1.FazAlgo();
+            Dados.ClasseTeste.FazAlgo();
         }
     }
 }

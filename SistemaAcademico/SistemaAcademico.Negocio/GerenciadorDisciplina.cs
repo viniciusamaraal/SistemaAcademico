@@ -1,4 +1,5 @@
-﻿using SistemaAcademico.Dados;
+﻿using SistemaAcademico.Dominio;
+using SistemaAcademico.Negocio.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Negocio
 {
-    public class Class1
+    public class GerenciadorDisciplina : Gerenciador<Disciplina>
     {
-        public static void FazNada()
-        {
-            Dados.ClasseTeste.FazAlgo();
-        }
     }
 }

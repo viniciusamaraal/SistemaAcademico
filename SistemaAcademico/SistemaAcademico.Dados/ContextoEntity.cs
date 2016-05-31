@@ -1,19 +1,32 @@
-﻿using SistemaAcademico.Dominio;
+﻿using SistemaAcademico.Dados.Contrato;
+using SistemaAcademico.Dominio;
+using SistemaAcademico.Util.Excecao.Dado;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dados
 {
-    public partial class Contexto : DbContext
+    public partial class ContextoEntity : DbContext, IContexto
     {
-        public Contexto()
-            : base("name=Contexto")
+        private ContextoEntity(string conexao)
+            : base(conexao)
         {
+            // Apenas para carregar a instância do SqlProviderServices:
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+            Configuration.ProxyCreationEnabled = false;
+        }
+
+        internal static IContexto CriaContexto(string conexao)
+        {
+            return new ContextoEntity(conexao);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -48,5 +61,37 @@ namespace SistemaAcademico.Dados
         public DbSet<RetificacaoFalta> RetificacaoFalta { get; set; }
         public DbSet<RevisaoAtividade> RevisaoAtividade { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+
+        public int SalvarAlteracoes()
+        {
+            return SalvarAlteracoes(false).Result;
+        }
+
+        public async Task<int> SalvarAlteracoesAsync()
+        {
+            return await SalvarAlteracoes(true);
+        }
+
+        private async Task<int> SalvarAlteracoes(bool async)
+        {
+            try
+            {
+                if (async)
+                    return SaveChanges();
+                return await SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new SalvarException("O registro foi modificado por outro usuário.", ex);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                throw new SalvarException("Ocorreu um erro ao validar os dados informados.", ex);
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new SalvarException("Ocorreu um erro ao gravar as suas alterações.", ex);
+            }
+        }
     }
 }

@@ -5,13 +5,12 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaAcademico.Dominio
+namespace SistemaAcademico.Dominio.Base
 {
     [DataContract]
-    public class Curso : Base.Dominio
+    public abstract class Dominio
     {
-        public string Nome { get; set; }
-
-        public virtual ICollection<Grade> Grade { get; set; }
+        [DataMember]
+        public int Id { get; set; }
     }
 }
