@@ -13,6 +13,5 @@ namespace SistemaAcademico.Servico.Controllers
 {
     public class DisciplinaController : Controlador<Disciplina>
     {
-        
     }
 }

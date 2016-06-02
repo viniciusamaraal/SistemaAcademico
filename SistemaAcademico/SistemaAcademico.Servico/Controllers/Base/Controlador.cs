@@ -1,5 +1,5 @@
 ﻿using SistemaAcademico.Dominio;
-using SistemaAcademico.Negocio.Base;
+using SistemaAcademico.Negocio.Gerenciador.Base;
 using SistemaAcademico.Util.Excecao.Dado;
 using System;
 using System.Collections.Generic;
@@ -46,6 +46,8 @@ namespace SistemaAcademico.Servico.Controllers.Base
                             break;
                         }
                     }
+                    if (_gerenciador == null)
+                        throw new NotImplementedException("Gerenciador não encontrado para o tipo " + typeof(T).FullName);
                 }
 
                 return _gerenciador;

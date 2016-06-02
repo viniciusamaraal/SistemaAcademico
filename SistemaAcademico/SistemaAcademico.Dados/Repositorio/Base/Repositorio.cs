@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaAcademico.Dados.Base
+namespace SistemaAcademico.Dados.Repositorio.Base
 {
     public class Repositorio<T> : IDisposable where T : Dominio.Base.Dominio
     {
@@ -45,7 +45,7 @@ namespace SistemaAcademico.Dados.Base
 
         public void Excluir(int id)
         {
-            T entidade = dbSet.Find(id);
+            var entidade = dbSet.Find(id);
             dbSet.Remove(entidade);
         }
 

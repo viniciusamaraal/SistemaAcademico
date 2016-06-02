@@ -1,5 +1,6 @@
 ﻿using SistemaAcademico.Dados;
 using SistemaAcademico.Dados.Contrato;
+using SistemaAcademico.Dados.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace SistemaAcademico.Negocio
 {
     public class Adaptador
     {
-        private IContexto contexto;
+        private readonly IContexto contexto;
 
         public Adaptador()
         {
@@ -22,15 +23,27 @@ namespace SistemaAcademico.Negocio
             contexto = contextoExistente;
         }
 
-        private RepositorioDisciplina repositorioDisciplina;
+        private RepositorioDisciplina _repositorioDisciplina;
         public RepositorioDisciplina RepositorioDisciplina
         {
             get
             {
-                if (this.repositorioDisciplina == null)
-                    this.repositorioDisciplina = new RepositorioDisciplina(contexto);
+                if (this._repositorioDisciplina == null)
+                    this._repositorioDisciplina = new RepositorioDisciplina(contexto);
 
-                return this.repositorioDisciplina;
+                return this._repositorioDisciplina;
+            }
+        }
+
+        private RepositorioRetificacaoFalta _repositorioRetificacaoFalta;
+        public RepositorioRetificacaoFalta RepositorioRetificacaoFalta
+        {
+            get
+            {
+                if (this._repositorioRetificacaoFalta == null)
+                    this._repositorioRetificacaoFalta = new RepositorioRetificacaoFalta(contexto);
+
+                return this._repositorioRetificacaoFalta;
             }
         }
 

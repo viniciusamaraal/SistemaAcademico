@@ -41,9 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adaptador.cs" />
-    <Compile Include="Base\Gerenciador.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="GerenciadorDisciplina.cs" />
+    <Compile Include="Gerenciador\Base\Gerenciador.cs" />
+    <Compile Include="ClasseTeste.cs" />
+    <Compile Include="Gerenciador\GerenciadorRetificacaoFalta.cs" />
+    <Compile Include="Gerenciador\GerenciadorDisciplina.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

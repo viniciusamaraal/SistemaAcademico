@@ -1,6 +1,6 @@
 ﻿using SistemaAcademico.Dados;
-using SistemaAcademico.Dados.Base;
 using SistemaAcademico.Dados.Contrato;
+using SistemaAcademico.Dados.Repositorio.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaAcademico.Negocio.Base
+namespace SistemaAcademico.Negocio.Gerenciador.Base
 {
     public class Gerenciador<T> : IDisposable where T: Dominio.Base.Dominio
     {
@@ -48,6 +48,8 @@ namespace SistemaAcademico.Negocio.Base
                             break;
                         }
                     }
+                    if (_repositorio == null)
+                        throw new NotImplementedException("Repositório não encontrado para o tipo " + typeof(T).FullName);
                 }
 
                 return _repositorio;

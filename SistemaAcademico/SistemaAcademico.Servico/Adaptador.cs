@@ -1,4 +1,5 @@
 ﻿using SistemaAcademico.Negocio;
+using SistemaAcademico.Negocio.Gerenciador;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,27 @@ namespace SistemaAcademico.Servico
 {
     public class Adaptador
     {
-        private GerenciadorDisciplina gerenciadorDisciplina;
+        private GerenciadorDisciplina _gerenciadorDisciplina;
         public GerenciadorDisciplina GerenciadorDisciplina
         {
             get
             {
-                if (this.gerenciadorDisciplina == null)
-                    this.gerenciadorDisciplina = new GerenciadorDisciplina();
+                if (this._gerenciadorDisciplina == null)
+                    this._gerenciadorDisciplina = new GerenciadorDisciplina();
 
-                return this.gerenciadorDisciplina;
+                return this._gerenciadorDisciplina;
+            }
+        }
+
+        private GerenciadorRetificacaoFalta _gerenciadorRetificacaoFalta;
+        public GerenciadorRetificacaoFalta GerenciadorRetificacaoFalta
+        {
+            get
+            {
+                if (this._gerenciadorRetificacaoFalta == null)
+                    this._gerenciadorRetificacaoFalta = new GerenciadorRetificacaoFalta();
+
+                return this._gerenciadorRetificacaoFalta;
             }
         }
 

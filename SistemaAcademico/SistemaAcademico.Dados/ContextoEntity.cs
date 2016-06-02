@@ -64,21 +64,21 @@ namespace SistemaAcademico.Dados
 
         public int SalvarAlteracoes()
         {
-            return SalvarAlteracoes(false).Result;
+            return SalvarAlteracoesAsync(false).Result;
         }
 
         public async Task<int> SalvarAlteracoesAsync()
         {
-            return await SalvarAlteracoes(true);
+            return await SalvarAlteracoesAsync(true);
         }
 
-        private async Task<int> SalvarAlteracoes(bool async)
+        private async Task<int> SalvarAlteracoesAsync(bool async)
         {
             try
             {
                 if (async)
-                    return SaveChanges();
-                return await SaveChangesAsync();
+                    return await SaveChangesAsync();
+                return  SaveChanges();
             }
             catch (DbUpdateConcurrencyException ex)
             {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Negocio
 {
-    public class Class1
+    public class ClasseTeste
     {
         public static void FazNada()
         {
