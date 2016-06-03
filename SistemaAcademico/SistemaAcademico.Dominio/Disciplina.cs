@@ -13,7 +13,7 @@ namespace SistemaAcademico.Dominio
     {
         [DataMember]
         public string Nome { get; set; }
-        
+
         [IgnoreDataMember]
         public virtual ICollection<GradeDisciplina> GradesCurricularesDisciplina { get; set; }
     }

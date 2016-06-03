@@ -23,38 +23,38 @@ namespace SistemaAcademico.Dados.Repositorio.Base
             dbSet = db.Set<T>();
         }
 
-        public IEnumerable<T> Buscar()
+        public virtual IEnumerable<T> Buscar()
         {
             return dbSet;
         }
 
-        public T Buscar(int id)
+        public virtual T Buscar(int id)
         {
             return dbSet.Find(id);
         }
 
-        public void Editar(T entidade)
+        public virtual void Editar(T entidade)
         {
             db.Entry(entidade).State = EntityState.Modified;
         }
 
-        public void Inserir(T entidade)
+        public virtual void Inserir(T entidade)
         {
             dbSet.Add(entidade);
         }
 
-        public void Excluir(int id)
+        public virtual void Excluir(int id)
         {
             var entidade = dbSet.Find(id);
             dbSet.Remove(entidade);
         }
 
-        public bool Existe(int id)
+        public virtual bool Existe(int id)
         {
             return dbSet.Any(e => e.Id == id);
         }
 
-        protected void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
             if (disposing)
                 db.Dispose();

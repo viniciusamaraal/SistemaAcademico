@@ -11,7 +11,10 @@ namespace SistemaAcademico.Dados
     {
         public static void FazAlgo()
         {
-            new RepositorioDisciplina().Buscar().ToList();
+            using (var repositorioDisciplina = new RepositorioDisciplina())
+            {
+                repositorioDisciplina.Buscar().ToList();
+            }
         }
     }
 }
