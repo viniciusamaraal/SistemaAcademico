@@ -54,63 +54,6 @@ namespace SistemaAcademico.Servico.Controllers.Base
             }
         }
 
-        // GET: api/Entidade
-        [HttpGet]
-        public IEnumerable<T> Buscar()
-        {
-            return Gerenciador.Buscar();
-        }
-
-        // GET: api/Entidade/5
-        [HttpGet]
-        public IHttpActionResult Buscar(int id)
-        {
-            var entidade = Gerenciador.Buscar(id);
-            if (entidade == null)
-                return NotFound();
-
-            return Ok(entidade);
-        }
-
-        // PUT: api/Entidade/5
-        [HttpPut]
-        public IHttpActionResult Editar(int id, T entidade)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            if (id != entidade.Id)
-                return BadRequest();
-
-            Gerenciador.Editar(entidade);
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Entidade
-        [HttpPost]
-        public IHttpActionResult Inserir(T entidade)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            Gerenciador.Inserir(entidade);
-            // TODO: Verificar forma de não deixar rota chapada:
-            return CreatedAtRoute("DefaultApi", new { id = entidade.Id }, entidade);
-        }
-
-        // DELETE: api/Entidade/5
-        [HttpDelete]
-        public IHttpActionResult Excluir(int id)
-        {
-            var entidade = Gerenciador.Buscar(id);
-            if (entidade == null)
-                return NotFound();
-
-            Gerenciador.Excluir(id);
-
-            return Ok(entidade);
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

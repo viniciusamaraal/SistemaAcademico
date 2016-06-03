@@ -8,8 +8,29 @@ using System.Threading.Tasks;
 namespace SistemaAcademico.Dominio.DTO
 {
     [DataContract]
-    public class RetificacaoFaltaDTO : Dominio.Base.Dominio
+    public class RetificacaoFaltaDTO
     {
+        public RetificacaoFaltaDTO()
+        {
+
+        }
+
+        public RetificacaoFaltaDTO(RetificacaoFalta retificacao)
+        {
+            this.Id = retificacao.Id;
+            this.NomeAluno = retificacao.Matricula.Aluno.Nome;
+            this.IdDisciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.IdDisciplina;
+            this.NomeDisciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.Disciplina.Nome;
+            this.DataFalta = retificacao.Data;
+            this.Justificativa = retificacao.Justificativa;
+            this.IdStatus = (int)retificacao.Status;
+            this.NomeStatus = retificacao.Status.ToString();
+            this.DataRequisicao = retificacao.Data; // TODO: Mapear no banco.
+        }
+
+        [DataMember]
+        public int Id { get; set; }
+
         [DataMember]
         public string NomeAluno { get; set; }
 

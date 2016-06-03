@@ -21,4 +21,4 @@ namespace SistemaAcademico.Dominio
         public ICollection<AlunoAtividade> AlunoAtividades { get; set; }
         public ICollection<Matricula> Matriculas { get; set; }
     }
-}  
+}

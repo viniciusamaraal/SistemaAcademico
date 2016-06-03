@@ -21,5 +21,11 @@ namespace SistemaAcademico.Dados.Repositorio
         {
 
         }
+
+        public override IEnumerable<RetificacaoFalta> Buscar()
+        {
+            return dbSet.Include(rf => rf.Matricula.Aluno)
+                        .Include(rf => rf.OfertaGradeDisciplina.GradeDisciplina.Disciplina);
+        }
     }
 }

@@ -89,7 +89,7 @@
   <ItemGroup>
     <Compile Include="Adaptador.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AtividadeController.cs" />
+    <Compile Include="Controllers\Base\ControladorCrud.cs" />
     <Compile Include="Controllers\Base\Controlador.cs" />
     <Compile Include="Controllers\DisciplinaController.cs" />
     <Compile Include="Controllers\RetificacaoFaltaController.cs" />

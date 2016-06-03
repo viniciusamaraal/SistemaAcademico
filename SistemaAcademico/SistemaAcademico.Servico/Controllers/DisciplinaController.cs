@@ -11,7 +11,7 @@ using SistemaAcademico.Servico.Controllers.Base;
 
 namespace SistemaAcademico.Servico.Controllers
 {
-    public class DisciplinaController : Controlador<Disciplina>
+    public class DisciplinaController : ControladorCrud<Disciplina>
     {
     }
 }
