@@ -56,35 +56,35 @@ namespace SistemaAcademico.Negocio.Gerenciador.Base
             }
         }
 
-        public IEnumerable<T> Buscar()
+        public virtual IEnumerable<T> Buscar()
         {
             return Repositorio.Buscar();
         }
 
-        public T Buscar(int id)
+        public virtual T Buscar(int id)
         {
             return Repositorio.Buscar(id);
         }
 
-        public void Editar(T entidade)
+        public virtual void Editar(T entidade)
         {
             Repositorio.Editar(entidade);
             adaptador.SalvarAlteracoes();
         }
 
-        public void Inserir(T entidade)
+        public virtual void Inserir(T entidade)
         {
             Repositorio.Inserir(entidade);
             adaptador.SalvarAlteracoes();
         }
 
-        public void Excluir(int id)
+        public virtual void Excluir(int id)
         {
             Repositorio.Excluir(id);
             adaptador.SalvarAlteracoes();
         }
 
-        public bool Existe(int id)
+        public virtual bool Existe(int id)
         {
             return Repositorio.Existe(id);
         }
