@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Dominio.cs" />
+    <Compile Include="DTO\RetificacaoFaltaDTO.cs" />
     <Compile Include="GradeDisciplina.cs" />
     <Compile Include="MatriculaOfertaGradeDisciplina.cs" />
     <Compile Include="Professor.cs" />
