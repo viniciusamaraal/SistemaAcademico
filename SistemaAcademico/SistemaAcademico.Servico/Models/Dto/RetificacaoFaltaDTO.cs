@@ -1,14 +1,16 @@
-﻿using System;
+﻿using SistemaAcademico.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using static SistemaAcademico.Dominio.Base.Servico;
 
-namespace SistemaAcademico.Dominio.DTO
+namespace SistemaAcademico.Servico.Models.Dto
 {
     [DataContract]
-    public class RetificacaoFaltaDTO
+    public class RetificacaoFaltaDTO : Dto.Base.Dto<RetificacaoFalta>
     {
         public RetificacaoFaltaDTO()
         {
@@ -18,6 +20,8 @@ namespace SistemaAcademico.Dominio.DTO
         public RetificacaoFaltaDTO(RetificacaoFalta retificacao)
         {
             this.Id = retificacao.Id;
+            this.IdMatricula = retificacao.IdMatricula;
+            this.IdOfertaGradeDisciplina = retificacao.IdOfertaGradeDisciplina;
             this.NomeAluno = retificacao.Matricula.Aluno.Nome;
             this.IdDisciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.IdDisciplina;
             this.NomeDisciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.Disciplina.Nome;
@@ -31,6 +35,12 @@ namespace SistemaAcademico.Dominio.DTO
         [DataMember]
         public int Id { get; set; }
 
+        [DataMember]
+        public int IdMatricula { get; set; }
+
+        [DataMember]
+        public int IdOfertaGradeDisciplina { get; set; }
+        
         [DataMember]
         public string NomeAluno { get; set; }
 
@@ -54,5 +64,18 @@ namespace SistemaAcademico.Dominio.DTO
 
         [DataMember]
         public DateTime DataRequisicao { get; set; }
+
+        public override RetificacaoFalta Constroi()
+        {
+            return new RetificacaoFalta
+            {
+                Id = this.Id,
+                Data = this.DataFalta,
+                IdMatricula = this.IdMatricula,
+                IdOfertaGradeDisciplina = this.IdOfertaGradeDisciplina,
+                Justificativa = this.Justificativa,
+                Status = (StatusServico)this.IdStatus
+            };
+        }
     }
 }

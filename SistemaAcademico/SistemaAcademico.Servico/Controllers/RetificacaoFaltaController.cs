@@ -1,7 +1,7 @@
 ﻿using SistemaAcademico.Dominio;
-using SistemaAcademico.Dominio.DTO;
 using SistemaAcademico.Negocio.Gerenciador;
 using SistemaAcademico.Servico.Controllers.Base;
+using SistemaAcademico.Servico.Models.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +15,9 @@ namespace SistemaAcademico.Servico.Controllers
     {
         public override IHttpActionResult Buscar()
         {
-            // TODO: Procurar uma forma melhor de fazer sem precisar de dar cast Gerenciador e/ou no Repositório.
-            return Content(HttpStatusCode.OK, ((GerenciadorRetificacaoFalta)Gerenciador).Buscar());
+            return Content(HttpStatusCode.OK, Gerenciador.Buscar().Select(rf => new RetificacaoFaltaDTO(rf)));
         }
+
+
     }
 }
