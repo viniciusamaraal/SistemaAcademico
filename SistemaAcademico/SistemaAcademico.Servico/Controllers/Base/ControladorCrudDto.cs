@@ -14,7 +14,7 @@ using System.Web.Http.Description;
 
 namespace SistemaAcademico.Servico.Controllers.Base
 {
-    public class ControladorCrudDto<TDominio, TDto> : ControladorCrud<TDominio> where TDominio : Dominio.Base.Dominio where TDto : Dto<TDominio>
+    public class ControladorCrudDto<TDominio, TDto> : ControladorCrud<TDominio> where TDominio : Dominio.Base.Dominio where TDto : Dto<TDominio>, new()
     {
         public ControladorCrudDto() : base()
         {
@@ -24,35 +24,55 @@ namespace SistemaAcademico.Servico.Controllers.Base
         {
         }
 
+        private static TDto CriarDto(TDominio rf)
+        {
+            var dto = new TDto();
+            dto.ConstruirDto(rf);
+            return dto;
+        }
+
+        public override IHttpActionResult Buscar()
+        {
+            return Ok(Gerenciador.Buscar().Select(rf => CriarDto(rf)));
+        }
+
+        public override IHttpActionResult Buscar(int id)
+        {
+            var entidade = Gerenciador.Buscar(id);
+            if (entidade == null)
+                return NotFound();
+
+            return Ok(CriarDto(entidade));
+        }
 
         // PUT: api/Entidade/5
-        //[HttpPut]
-        //public override IHttpActionResult Editar(int id, TDto entidade)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ModelState);
+        [HttpPut]
+        public virtual IHttpActionResult Editar(int id, TDto entidade)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        //    var dominio = entidade.Constroi();
+            var dominio = entidade.ConstruirDominio();
 
-        //    if (id != dominio.Id)
-        //        return BadRequest();
+            if (id != dominio.Id)
+                return BadRequest();
 
-        //    Gerenciador.Editar(dominio);
-        //    return StatusCode(HttpStatusCode.NoContent);
-        //}
+            Gerenciador.Editar(dominio);
+            return StatusCode(HttpStatusCode.NoContent);
+        }
 
-        //// POST: api/Entidade
-        //[HttpPost]
-        //public override IHttpActionResult Inserir(TDto entidade)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ModelState);
+        // POST: api/Entidade
+        [HttpPost]
+        public virtual IHttpActionResult Inserir(TDto entidade)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        //    var dominio = entidade.Constroi();
+            var dominio = entidade.ConstruirDominio();
 
-        //    Gerenciador.Inserir(dominio);
-        //    // TODO: Verificar forma de não deixar rota chapada:
-        //    return CreatedAtRoute("DefaultApi", new { id = entidade.Id }, entidade);
-        //}
+            Gerenciador.Inserir(dominio);
+            // TODO: Verificar forma de não deixar rota chapada:
+            return CreatedAtRoute("DefaultApi", new { id = entidade.Id }, entidade);
+        }
     }
 }

@@ -19,21 +19,8 @@ namespace SistemaAcademico.Servico.Models.Dto
 
         public RetificacaoFaltaDTO(RetificacaoFalta retificacao)
         {
-            this.Id = retificacao.Id;
-            this.IdMatricula = retificacao.IdMatricula;
-            this.IdOfertaGradeDisciplina = retificacao.IdOfertaGradeDisciplina;
-            this.NomeAluno = retificacao.Matricula.Aluno.Nome;
-            this.IdDisciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.IdDisciplina;
-            this.NomeDisciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.Disciplina.Nome;
-            this.DataFalta = retificacao.Data;
-            this.Justificativa = retificacao.Justificativa;
-            this.IdStatus = (int)retificacao.Status;
-            this.NomeStatus = retificacao.Status.ToString();
-            this.DataRequisicao = retificacao.Data; // TODO: Mapear no banco.
+            ConstruirDto(retificacao);
         }
-
-        [DataMember]
-        public int Id { get; set; }
 
         [DataMember]
         public int IdMatricula { get; set; }
@@ -65,7 +52,7 @@ namespace SistemaAcademico.Servico.Models.Dto
         [DataMember]
         public DateTime DataRequisicao { get; set; }
 
-        public override RetificacaoFalta Constroi()
+        public override RetificacaoFalta ConstruirDominio()
         {
             return new RetificacaoFalta
             {
@@ -76,6 +63,21 @@ namespace SistemaAcademico.Servico.Models.Dto
                 Justificativa = this.Justificativa,
                 Status = (StatusServico)this.IdStatus
             };
+        }
+
+        public override void ConstruirDto(RetificacaoFalta retificacao)
+        {
+            base.Id = retificacao.Id;
+            this.IdMatricula = retificacao.IdMatricula;
+            this.IdOfertaGradeDisciplina = retificacao.IdOfertaGradeDisciplina;
+            this.NomeAluno = retificacao.Matricula.Aluno.Nome;
+            this.IdDisciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.IdDisciplina;
+            this.NomeDisciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.Disciplina.Nome;
+            this.DataFalta = retificacao.Data;
+            this.Justificativa = retificacao.Justificativa;
+            this.IdStatus = (int)retificacao.Status;
+            this.NomeStatus = retificacao.Status.ToString();
+            this.DataRequisicao = retificacao.Data; // TODO: Mapear no banco.
         }
     }
 }

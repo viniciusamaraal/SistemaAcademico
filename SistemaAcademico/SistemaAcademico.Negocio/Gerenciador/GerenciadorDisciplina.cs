@@ -1,5 +1,6 @@
 ﻿using SistemaAcademico.Dominio;
 using SistemaAcademico.Negocio.Gerenciador.Base;
+using SistemaAcademico.Util.Delegates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,9 @@ namespace SistemaAcademico.Negocio.Gerenciador
 {
     public class GerenciadorDisciplina : Gerenciador<Disciplina>
     {
+        public GerenciadorDisciplina(RegistraErro registraErro) : base(registraErro)
+        {
+        }
+
     }
 }

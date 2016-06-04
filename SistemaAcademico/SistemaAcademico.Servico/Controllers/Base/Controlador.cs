@@ -19,7 +19,7 @@ namespace SistemaAcademico.Servico.Controllers.Base
 
         public Controlador()
         {
-            this.adaptador = new Adaptador();
+            this.adaptador = new Adaptador(RegistraErros);
         }
 
         public Controlador(Adaptador adaptador)
@@ -52,6 +52,11 @@ namespace SistemaAcademico.Servico.Controllers.Base
 
                 return _gerenciador;
             }
+        }
+
+        protected void RegistraErros(string chave, string erro)
+        {
+            ModelState.AddModelError(chave, erro);
         }
 
         protected override void Dispose(bool disposing)

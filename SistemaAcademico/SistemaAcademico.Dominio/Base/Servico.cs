@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -12,9 +13,12 @@ namespace SistemaAcademico.Dominio.Base
     {
         [DataMember]
         public DateTime Data { get; set; }
+
         [DataMember]
         public StatusServico Status { get; set; }
+
         [DataMember]
+        [Required]
         public string Justificativa { get; set; }
 
         public enum StatusServico

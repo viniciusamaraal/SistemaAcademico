@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Adaptador.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Base\ControladorCrudDominio.cs" />
     <Compile Include="Controllers\Base\ControladorCrudDto.cs" />
     <Compile Include="Controllers\Base\ControladorCrud.cs" />
     <Compile Include="Controllers\Base\Controlador.cs" />

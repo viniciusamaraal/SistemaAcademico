@@ -9,6 +9,7 @@ using SistemaAcademico.Dados;
 
 namespace SistemaAcademico.Dados
 {
+    // TODO: Avaliar se separamos essa classe.
     public static class InicializadorHelper
     {
         public static void Adicionar<T>(this IEnumerable<T> entidades, ContextoEntity contexto) where T : Dominio.Base.Dominio
@@ -20,7 +21,7 @@ namespace SistemaAcademico.Dados
         }
     }
 
-    public class Inicializador : CreateDatabaseIfNotExists<ContextoEntity>
+    public class Inicializador : DropCreateDatabaseIfModelChanges<ContextoEntity>
     {
         protected override void Seed(ContextoEntity contexto)
         {

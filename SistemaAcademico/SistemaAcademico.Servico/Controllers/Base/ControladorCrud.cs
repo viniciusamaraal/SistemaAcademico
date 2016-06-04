@@ -28,7 +28,7 @@ namespace SistemaAcademico.Servico.Controllers.Base
         [HttpGet]
         public virtual IHttpActionResult Buscar()
         {
-            return Content(HttpStatusCode.OK, Gerenciador.Buscar());
+            return Ok(Gerenciador.Buscar());
         }
 
         // GET: api/Entidade/5
@@ -40,32 +40,6 @@ namespace SistemaAcademico.Servico.Controllers.Base
                 return NotFound();
 
             return Ok(entidade);
-        }
-
-        // PUT: api/Entidade/5
-        [HttpPut]
-        public virtual IHttpActionResult Editar(int id, TDominio entidade)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            if (id != entidade.Id)
-                return BadRequest();
-
-            Gerenciador.Editar(entidade);
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Entidade
-        [HttpPost]
-        public virtual IHttpActionResult Inserir(TDominio entidade)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            Gerenciador.Inserir(entidade);
-            // TODO: Verificar forma de não deixar rota chapada:
-            return CreatedAtRoute("DefaultApi", new { id = entidade.Id }, entidade);
         }
 
         // DELETE: api/Entidade/5

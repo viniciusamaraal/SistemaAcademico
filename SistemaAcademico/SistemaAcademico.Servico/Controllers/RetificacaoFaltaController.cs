@@ -11,12 +11,9 @@ using System.Web.Http;
 
 namespace SistemaAcademico.Servico.Controllers
 {
-    public class RetificacaoFaltaController : ControladorCrud<RetificacaoFalta>
+    public class RetificacaoFaltaController : ControladorCrudDto<RetificacaoFalta, RetificacaoFaltaDTO>
     {
-        public override IHttpActionResult Buscar()
-        {
-            return Content(HttpStatusCode.OK, Gerenciador.Buscar().Select(rf => new RetificacaoFaltaDTO(rf)));
-        }
+
 
 
     }
