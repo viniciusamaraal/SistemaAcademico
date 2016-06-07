@@ -90,13 +90,20 @@
   <ItemGroup>
     <Compile Include="Adaptador.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AtividadesController.cs" />
     <Compile Include="Controllers\Base\ControladorCrudDominio.cs" />
     <Compile Include="Controllers\Base\ControladorCrudDto.cs" />
     <Compile Include="Controllers\Base\ControladorCrud.cs" />
     <Compile Include="Controllers\Base\Controlador.cs" />
-    <Compile Include="Controllers\DisciplinaController.cs" />
-    <Compile Include="Controllers\RetificacaoFaltaController.cs" />
-    <Compile Include="Models\Dto\Base\Dto.cs" />
+    <Compile Include="Controllers\BoletimController.cs" />
+    <Compile Include="Controllers\DisciplinasController.cs" />
+    <Compile Include="Controllers\GradesController.cs" />
+    <Compile Include="Controllers\RetificacoesFaltaController.cs" />
+    <Compile Include="Controllers\RevisoesAtividadeController.cs" />
+    <Compile Include="Models\Dto\BoletimAtividadeDto.cs" />
+    <Compile Include="Models\Dto\Base\DtoDominio.cs" />
+    <Compile Include="Models\Dto\BoletimDisciplinaDto.cs" />
+    <Compile Include="Models\Dto\RevisaoAtividadeDto.cs" />
     <Compile Include="Models\Dto\RetificacaoFaltaDto.cs" />
     <Compile Include="Filtro\TratamentoExcecaoAttribute.cs" />
     <Compile Include="Global.asax.cs">

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Servico
 {
-    public class Adaptador
+    public class Adaptador: IDisposable
     {
         private RegistraErro registrarErro;
 
@@ -46,5 +46,31 @@ namespace SistemaAcademico.Servico
             }
         }
 
+        private GerenciadorMatricula _gerenciadorMatricula;
+        public GerenciadorMatricula GerenciadorMatricula
+        {
+            get
+            {
+                if (this._gerenciadorMatricula == null)
+                    this._gerenciadorMatricula = new GerenciadorMatricula(registrarErro);
+
+                return this._gerenciadorMatricula;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _gerenciadorDisciplina?.Dispose();
+                _gerenciadorRetificacaoFalta?.Dispose();
+                _gerenciadorMatricula?.Dispose();
+            }
+        }
     }
 }

@@ -15,6 +15,6 @@ namespace SistemaAcademico.Dominio
         [ForeignKey(nameof(AlunoAtividade))]
         public int IdAlunoAtividade { get; set; }
 
-        public virtual AlunoAtividade AlunoAtividade { get; set; }
+        public virtual MatriculaAtividade AlunoAtividade { get; set; }
     }
 }

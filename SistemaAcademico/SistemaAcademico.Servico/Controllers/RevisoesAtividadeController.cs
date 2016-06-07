@@ -1,5 +1,4 @@
 ﻿using SistemaAcademico.Dominio;
-using SistemaAcademico.Negocio.Gerenciador;
 using SistemaAcademico.Servico.Controllers.Base;
 using SistemaAcademico.Servico.Models.Dto;
 using System;
@@ -11,10 +10,7 @@ using System.Web.Http;
 
 namespace SistemaAcademico.Servico.Controllers
 {
-    public class RetificacaoFaltaController : ControladorCrudDto<RetificacaoFalta, RetificacaoFaltaDTO>
+    public class RevisoesAtividadeController :  ControladorCrudDto<RevisaoAtividade, RevisaoAtividadeDto>
     {
-
-
-
     }
 }

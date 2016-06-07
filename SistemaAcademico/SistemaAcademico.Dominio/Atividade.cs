@@ -20,6 +20,6 @@ namespace SistemaAcademico.Dominio
 
         public virtual OfertaGradeDisciplina OfertaGradeDisciplina { get; set; }
 
-        public virtual ICollection<AlunoAtividade> AlunoAtividades { get; set; }
+        public virtual ICollection<MatriculaAtividade> AlunoAtividades { get; set; }
     }
 }

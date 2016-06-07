@@ -43,6 +43,7 @@
     <Compile Include="Adaptador.cs" />
     <Compile Include="Gerenciador\Base\Gerenciador.cs" />
     <Compile Include="ClasseTeste.cs" />
+    <Compile Include="Gerenciador\GerenciadorMatricula.cs" />
     <Compile Include="Gerenciador\GerenciadorRetificacaoFalta.cs" />
     <Compile Include="Gerenciador\GerenciadorDisciplina.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

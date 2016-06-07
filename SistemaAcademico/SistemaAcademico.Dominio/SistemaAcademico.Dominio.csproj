@@ -47,7 +47,7 @@
     <Compile Include="MatriculaOfertaGradeDisciplina.cs" />
     <Compile Include="Professor.cs" />
     <Compile Include="Aluno.cs" />
-    <Compile Include="AlunoAtividade.cs" />
+    <Compile Include="MatriculaAtividade.cs" />
     <Compile Include="OfertaGradeDisciplina.cs" />
     <Compile Include="Matricula.cs" />
     <Compile Include="Curso.cs" />

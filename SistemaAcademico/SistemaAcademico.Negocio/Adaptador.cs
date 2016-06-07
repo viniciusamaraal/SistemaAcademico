@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Negocio
 {
-    public class Adaptador
+    public class Adaptador : IDisposable
     {
         private readonly IContexto contexto;
 
@@ -47,6 +47,18 @@ namespace SistemaAcademico.Negocio
             }
         }
 
+        private RepositorioMatriculaAtividade _repositorioMatriculaAtividade;
+        public RepositorioMatriculaAtividade RepositorioMatriculaAtividade
+        {
+            get
+            {
+                if (this._repositorioMatriculaAtividade == null)
+                    this._repositorioMatriculaAtividade = new RepositorioMatriculaAtividade(contexto);
+
+                return this._repositorioMatriculaAtividade;
+            }
+        }
+
         internal void SalvarAlteracoes()
         {
             contexto.SalvarAlteracoes();
@@ -55,6 +67,21 @@ namespace SistemaAcademico.Negocio
         internal async void SalvarAlteracoesAsync()
         {
             await contexto.SalvarAlteracoesAsync();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _repositorioDisciplina?.Dispose();
+                _repositorioRetificacaoFalta?.Dispose();
+                _repositorioMatriculaAtividade?.Dispose();
+            }
         }
     }
 }

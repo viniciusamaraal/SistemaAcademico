@@ -101,7 +101,10 @@ namespace SistemaAcademico.Negocio.Gerenciador.Base
         protected void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 Repositorio.Dispose();
+                adaptador.Dispose();
+            }
         }
 
         public void Dispose()

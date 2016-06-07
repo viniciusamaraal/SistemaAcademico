@@ -18,7 +18,6 @@ namespace SistemaAcademico.Dominio
 
         public virtual Usuario Usuario { get; set; }
 
-        public ICollection<AlunoAtividade> AlunoAtividades { get; set; }
         public ICollection<Matricula> Matriculas { get; set; }
     }
 }

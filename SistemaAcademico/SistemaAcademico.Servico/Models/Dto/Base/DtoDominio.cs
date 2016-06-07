@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SistemaAcademico.Servico.Models.Dto.Base
 {
     [DataContract]
-    public abstract class Dto <TDominio> where TDominio: Dominio.Base.Dominio
+    public abstract class DtoDominio <TDominio> where TDominio: Dominio.Base.Dominio
     {
         [DataMember]
         public int Id { get; set; }

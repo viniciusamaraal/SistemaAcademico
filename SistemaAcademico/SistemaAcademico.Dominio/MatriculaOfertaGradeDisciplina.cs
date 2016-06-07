@@ -19,5 +19,6 @@ namespace SistemaAcademico.Dominio
 
         public virtual Matricula Matricula { get; set; }
         public virtual OfertaGradeDisciplina OfertaGradeDisciplina { get; set; }
+        public virtual ICollection<MatriculaAtividade> MatriculaAtividades { get; set; }
     }
 }

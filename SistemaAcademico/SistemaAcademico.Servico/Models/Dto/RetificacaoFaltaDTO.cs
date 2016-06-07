@@ -10,7 +10,7 @@ using static SistemaAcademico.Dominio.Base.Servico;
 namespace SistemaAcademico.Servico.Models.Dto
 {
     [DataContract]
-    public class RetificacaoFaltaDTO : Dto.Base.Dto<RetificacaoFalta>
+    public class RetificacaoFaltaDTO : Dto.Base.DtoDominio<RetificacaoFalta>
     {
         public RetificacaoFaltaDTO()
         {

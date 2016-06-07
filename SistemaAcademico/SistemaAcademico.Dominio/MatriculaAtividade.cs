@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 namespace SistemaAcademico.Dominio
 {
     [DataContract]
-    public class AlunoAtividade : Base.Dominio
+    public class MatriculaAtividade : Base.Dominio
     {
         public double Nota { get; set; }
 
-        [ForeignKey(nameof(Aluno))]
-        public int IdAluno { get; set; }
         [ForeignKey(nameof(Atividade))]
         public int IdAtividade { get; set; }
+        [ForeignKey(nameof(MatriculaOfertaGradeDisciplina))]
+        public int IdMatriculaOfertaGradeDisciplina { get; set; }
 
-        public virtual Aluno Aluno { get; set; }
         public virtual Atividade Atividade { get; set; }
+        public virtual MatriculaOfertaGradeDisciplina MatriculaOfertaGradeDisciplina { get; set; }
     }
 }

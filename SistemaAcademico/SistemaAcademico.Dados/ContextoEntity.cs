@@ -48,7 +48,7 @@ namespace SistemaAcademico.Dados
         }
 
         public DbSet<Aluno> Aluno { get; set; }
-        public DbSet<AlunoAtividade> AlunoAtividade { get; set; }
+        public DbSet<MatriculaAtividade> AlunoAtividade { get; set; }
         public DbSet<Atividade> Atividade { get; set; }
         public DbSet<Curso> Curso { get; set; }
         public DbSet<Disciplina> Disciplina { get; set; }
