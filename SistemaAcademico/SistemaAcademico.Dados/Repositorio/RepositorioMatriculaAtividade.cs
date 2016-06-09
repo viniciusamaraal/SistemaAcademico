@@ -24,10 +24,9 @@ namespace SistemaAcademico.Dados.Repositorio
 
         public IEnumerable<MatriculaAtividade> BuscarPorMatricula(int idMatricula)
         {
-            return db.Set<MatriculaOfertaGradeDisciplina>()
-                     .Include(m => m.MatriculaAtividades)
-                     .Where(m => m.IdMatricula == idMatricula)
-                     .SelectMany(m => m.MatriculaAtividades);
+            return dbSet.Include(m => m.MatriculaOfertaGradeDisciplina.OfertaGradeDisciplina.GradeDisciplina.Disciplina)
+                        .Include(m => m.Atividade)
+                        .Where(m => m.MatriculaOfertaGradeDisciplina.IdMatricula == idMatricula);
         }
     }
 }

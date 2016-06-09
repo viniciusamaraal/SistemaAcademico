@@ -27,15 +27,12 @@ namespace SistemaAcademico.Servico.Models.Dto
 
         [DataMember]
         public int IdOfertaGradeDisciplina { get; set; }
-        
+
         [DataMember]
         public string NomeAluno { get; set; }
 
         [DataMember]
-        public int IdDisciplina { get; set; }
-
-        [DataMember]
-        public string NomeDisciplina { get; set; }
+        public Disciplina Disciplina { get; set; }
 
         [DataMember]
         public DateTime DataFalta { get; set; }
@@ -71,8 +68,7 @@ namespace SistemaAcademico.Servico.Models.Dto
             this.IdMatricula = retificacao.IdMatricula;
             this.IdOfertaGradeDisciplina = retificacao.IdOfertaGradeDisciplina;
             this.NomeAluno = retificacao.Matricula.Aluno.Nome;
-            this.IdDisciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.IdDisciplina;
-            this.NomeDisciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.Disciplina.Nome;
+            this.Disciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.Disciplina;
             this.DataFalta = retificacao.Data;
             this.Justificativa = retificacao.Justificativa;
             this.IdStatus = (int)retificacao.Status;

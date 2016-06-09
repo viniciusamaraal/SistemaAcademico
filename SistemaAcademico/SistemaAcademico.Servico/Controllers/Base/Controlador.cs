@@ -27,33 +27,6 @@ namespace SistemaAcademico.Servico.Controllers.Base
             this.adaptador = adaptador;
         }
 
-        private Gerenciador<T> _gerenciador;
-        protected Gerenciador<T> Gerenciador
-        {
-            get
-            {
-                if (_gerenciador == null)
-                {
-                    var propriedades = typeof(Adaptador).GetProperties();
-                    foreach (PropertyInfo i in propriedades)
-                    {
-                        var tipo = i.PropertyType;
-                        // TODO: Verificar forma melhor de buscar o tipo da propriedade:
-                        if (tipo.BaseType.GenericTypeArguments.Any() &&
-                            tipo.BaseType.GenericTypeArguments[0].FullName == typeof(T).FullName)
-                        {
-                            _gerenciador = i.GetValue(adaptador) as Gerenciador<T>;
-                            break;
-                        }
-                    }
-                    if (_gerenciador == null)
-                        throw new NotImplementedException("Gerenciador não encontrado para o tipo " + typeof(T).FullName);
-                }
-
-                return _gerenciador;
-            }
-        }
-
         protected void RegistraErros(string chave, string erro)
         {
             ModelState.AddModelError(chave, erro);
@@ -62,7 +35,7 @@ namespace SistemaAcademico.Servico.Controllers.Base
         protected override void Dispose(bool disposing)
         {
             if (disposing)
-                Gerenciador.Dispose();
+                adaptador.Dispose();
 
             base.Dispose(disposing);
         }

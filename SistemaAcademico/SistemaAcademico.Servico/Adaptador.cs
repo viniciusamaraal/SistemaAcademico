@@ -11,7 +11,7 @@ namespace SistemaAcademico.Servico
 {
     public class Adaptador: IDisposable
     {
-        private RegistraErro registrarErro;
+        private readonly RegistraErro registrarErro;
 
         public Adaptador()
         {
@@ -61,6 +61,7 @@ namespace SistemaAcademico.Servico
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         protected virtual void Dispose(bool disposing)

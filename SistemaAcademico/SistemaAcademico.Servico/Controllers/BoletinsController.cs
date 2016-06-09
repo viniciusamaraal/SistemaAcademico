@@ -12,12 +12,12 @@ using SistemaAcademico.Servico.Models.Dto;
 
 namespace SistemaAcademico.Servico.Controllers
 {
-    public class BoletimController : Controlador<Matricula>
+    public class BoletinsController : Controlador<Matricula>
     {
         [HttpGet]
-        public IHttpActionResult Buscar(int idMatricula)
+        public IHttpActionResult Buscar(int id)
         {
-            var atividades = adaptador.GerenciadorMatricula.BuscarAtividades(idMatricula);
+            var atividades = adaptador.GerenciadorMatricula.BuscarAtividades(id);
             var atividadesPorDisciplina = atividades.GroupBy(
                 a => a.MatriculaOfertaGradeDisciplina.OfertaGradeDisciplina.GradeDisciplina.Disciplina
             );

@@ -1,4 +1,6 @@
-﻿using SistemaAcademico.Util.Excecao.Dado;
+﻿#pragma warning disable CC0023 // Unsealed Attribute
+
+using SistemaAcademico.Util.Excecao.Dado;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,3 +26,5 @@ namespace SistemaAcademico.Servico.Filtro
         }
     }
 }
+
+#pragma warning restore CC0023 // Unsealed Attribute

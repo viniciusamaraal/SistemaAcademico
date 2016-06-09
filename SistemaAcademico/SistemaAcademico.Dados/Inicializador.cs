@@ -46,7 +46,8 @@ namespace SistemaAcademico.Dados
 
             new List<GradeDisciplina>
             {
-                new GradeDisciplina {IdGrade = 1, IdDisciplina = 1 }
+                new GradeDisciplina {IdGrade = 1, IdDisciplina = 1 },
+                new GradeDisciplina {IdGrade = 1, IdDisciplina = 2 }
             }.Adicionar(contexto);
 
             new List<Usuario>
@@ -68,7 +69,8 @@ namespace SistemaAcademico.Dados
 
             new List<OfertaGradeDisciplina>
             {
-                new OfertaGradeDisciplina {IdGradeDisciplina = 1, IdProfessor = 1 }
+                new OfertaGradeDisciplina {IdGradeDisciplina = 1, IdProfessor = 1 },
+                new OfertaGradeDisciplina {IdGradeDisciplina = 2, IdProfessor = 1 }
             }.Adicionar(contexto);
 
             new List<Matricula>
@@ -78,7 +80,22 @@ namespace SistemaAcademico.Dados
 
             new List<MatriculaOfertaGradeDisciplina>
             {
-                new MatriculaOfertaGradeDisciplina {IdMatricula = 1, IdOfertaGradeDisciplina = 1 }
+                new MatriculaOfertaGradeDisciplina {IdMatricula = 1, IdOfertaGradeDisciplina = 1 },
+                new MatriculaOfertaGradeDisciplina {IdMatricula = 1, IdOfertaGradeDisciplina = 2 }
+            }.Adicionar(contexto);
+
+            new List<Atividade>
+            {
+                new Atividade { Data = DateTime.Now, Nome = "TP 01", Valor= 10, IdOfertaGradeDisciplina = 1 },
+                new Atividade { Data = DateTime.Now, Nome = "TP 02", Valor= 15, IdOfertaGradeDisciplina = 1 },
+                new Atividade { Data = DateTime.Now, Nome = "Prova 1", Valor= 10, IdOfertaGradeDisciplina = 2 }
+            }.Adicionar(contexto);
+
+            new List<MatriculaAtividade>
+            {
+                new MatriculaAtividade {IdAtividade = 1, IdMatriculaOfertaGradeDisciplina = 1, Nota = 9 },
+                new MatriculaAtividade {IdAtividade = 2, IdMatriculaOfertaGradeDisciplina = 1, Nota = 12 },
+                new MatriculaAtividade {IdAtividade = 3, IdMatriculaOfertaGradeDisciplina = 2, Nota = 10 },
             }.Adicionar(contexto);
         }
     }

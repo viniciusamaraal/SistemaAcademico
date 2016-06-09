@@ -63,6 +63,7 @@ namespace SistemaAcademico.Dados.Repositorio.Base
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

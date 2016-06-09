@@ -23,6 +23,32 @@ namespace SistemaAcademico.Servico.Controllers.Base
         {
         }
 
+        private GerenciadorDominio<TDominio> _gerenciador;
+        protected GerenciadorDominio<TDominio> Gerenciador
+        {
+            get
+            {
+                if (_gerenciador == null)
+                {
+                    var propriedades = typeof(Adaptador).GetProperties();
+                    foreach (PropertyInfo i in propriedades)
+                    {
+                        var tipo = i.PropertyType;
+                        // TODO: Verificar forma melhor de buscar o tipo da propriedade:
+                        if (tipo.BaseType.GenericTypeArguments.Any() &&
+                            tipo.BaseType.GenericTypeArguments[0].FullName == typeof(TDominio).FullName)
+                        {
+                            _gerenciador = i.GetValue(adaptador) as GerenciadorDominio<TDominio>;
+                            break;
+                        }
+                    }
+                    if (_gerenciador == null)
+                        throw new NotImplementedException("Gerenciador não encontrado para o tipo " + typeof(TDominio).FullName);
+                }
+
+                return _gerenciador;
+            }
+        }
 
         // GET: api/Entidade
         [HttpGet]
@@ -58,7 +84,7 @@ namespace SistemaAcademico.Servico.Controllers.Base
         protected override void Dispose(bool disposing)
         {
             if (disposing)
-                Gerenciador.Dispose();
+                _gerenciador?.Dispose();
 
             base.Dispose(disposing);
         }

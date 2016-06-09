@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Negocio.Gerenciador
 {
-    public class GerenciadorMatricula : Gerenciador<Matricula>
+    public class GerenciadorMatricula : Gerenciador.Base.Gerenciador
     {
         public GerenciadorMatricula(RegistraErro registraErro) : base(registraErro)
         {

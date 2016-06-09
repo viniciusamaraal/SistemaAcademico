@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Negocio.Gerenciador
 {
-    public class GerenciadorRetificacaoFalta : Gerenciador<RetificacaoFalta>
+    public class GerenciadorRetificacaoFalta : GerenciadorDominio<RetificacaoFalta>
     {
         public GerenciadorRetificacaoFalta(RegistraErro registraErro) : base(registraErro)
         {
