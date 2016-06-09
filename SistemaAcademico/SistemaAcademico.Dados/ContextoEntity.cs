@@ -45,6 +45,11 @@ namespace SistemaAcademico.Dados
                 .HasRequired(c => c.Usuario)
                 .WithMany()
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Atividade>()
+                .HasRequired(a => a.OfertaGradeDisciplina)
+                .WithMany(a => a.Atividades)
+                .WillCascadeOnDelete(false);
         }
 
         public DbSet<Aluno> Aluno { get; set; }
