@@ -13,8 +13,5 @@ namespace SistemaAcademico.Servico.Controllers
 {
     public class RetificacoesFaltaController : ControladorCrudDto<RetificacaoFalta, RetificacaoFaltaDTO>
     {
-
-
-
     }
 }
