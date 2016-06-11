@@ -1,5 +1,6 @@
 ﻿#pragma warning disable CC0023 // Unsealed Attribute
 
+using SistemaAcademico.Util.Excecao;
 using SistemaAcademico.Util.Excecao.Dado;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,17 @@ namespace SistemaAcademico.Servico.Filtro
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
             var ex = actionExecutedContext.Exception;
-            var codigo = ex is SalvarException ? HttpStatusCode.BadRequest : HttpStatusCode.InternalServerError;
-            actionExecutedContext.Response = new HttpResponseMessage(codigo)
+            var httpException = ex as HttpResponseException;
+            if (httpException != null)
+                actionExecutedContext.Response = httpException.Response;
+            else
             {
-                Content = new StringContent(ex.Message)
-            };
+                var codigo = ex is SalvarException ? HttpStatusCode.BadRequest : HttpStatusCode.InternalServerError;
+                actionExecutedContext.Response = new HttpResponseMessage(codigo)
+                {
+                    Content = new StringContent(string.Join(" --> ", ex.BuscaTodasMensagens()))
+                };
+            }
         }
     }
 }
