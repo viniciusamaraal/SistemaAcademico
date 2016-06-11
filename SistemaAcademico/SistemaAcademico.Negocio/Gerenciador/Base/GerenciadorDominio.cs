@@ -70,16 +70,18 @@ namespace SistemaAcademico.Negocio.Gerenciador.Base
             return Repositorio.Buscar(id);
         }
 
-        public virtual void Editar(T entidade)
+        public virtual bool Editar(T entidade)
         {
             Repositorio.Editar(entidade);
             adaptador.SalvarAlteracoes();
+            return true;
         }
 
-        public virtual void Inserir(T entidade)
+        public virtual bool Inserir(T entidade)
         {
             Repositorio.Inserir(entidade);
             adaptador.SalvarAlteracoes();
+            return true;
         }
 
         public virtual void Excluir(int id)

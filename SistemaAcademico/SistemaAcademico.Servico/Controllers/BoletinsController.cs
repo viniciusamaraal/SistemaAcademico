@@ -8,7 +8,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using SistemaAcademico.Dominio;
 using SistemaAcademico.Servico.Controllers.Base;
-using SistemaAcademico.Servico.Models.Dto;
+using SistemaAcademico.Servico.Dto;
 
 namespace SistemaAcademico.Servico.Controllers
 {

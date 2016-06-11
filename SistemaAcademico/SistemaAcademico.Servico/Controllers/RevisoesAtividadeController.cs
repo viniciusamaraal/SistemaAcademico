@@ -1,6 +1,6 @@
 ﻿using SistemaAcademico.Dominio;
 using SistemaAcademico.Servico.Controllers.Base;
-using SistemaAcademico.Servico.Models.Dto;
+using SistemaAcademico.Servico.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;

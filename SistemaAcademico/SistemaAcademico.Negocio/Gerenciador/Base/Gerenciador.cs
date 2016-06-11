@@ -15,7 +15,7 @@ namespace SistemaAcademico.Negocio.Gerenciador.Base
     {
         protected readonly Adaptador adaptador;
 
-        protected RegistraErro registrarErro;
+        protected RegistraErro registrarErroCliente;
 
         public Gerenciador()
             : this (null)
@@ -30,12 +30,18 @@ namespace SistemaAcademico.Negocio.Gerenciador.Base
         public Gerenciador(RegistraErro registroErros, Adaptador adaptador)
         {
             this.adaptador = adaptador;
-            this.registrarErro = registroErros;
+            this.registrarErroCliente = registroErros;
         }
 
         public Gerenciador(RegistraErro registroErros, IContexto contextoExistente)
             : this(registroErros, new Adaptador(contextoExistente))
         {
+        }
+
+        protected virtual void RegistrarErro(string chave, string mensagem, ref bool errosRegistrados)
+        {
+            registrarErroCliente?.Invoke(chave, mensagem);
+            errosRegistrados = true;
         }
 
         protected virtual void Dispose(bool disposing)

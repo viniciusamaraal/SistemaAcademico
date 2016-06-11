@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaAcademico.Servico.Models.Dto.Base
+namespace SistemaAcademico.Servico.Dto.Base
 {
     [DataContract]
     public abstract class DtoDominio <TDominio> where TDominio: Dominio.Base.Dominio

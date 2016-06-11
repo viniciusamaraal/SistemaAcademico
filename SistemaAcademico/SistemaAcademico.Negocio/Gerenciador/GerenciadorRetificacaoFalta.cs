@@ -16,15 +16,19 @@ namespace SistemaAcademico.Negocio.Gerenciador
         {
         }
 
-        public override void Inserir(RetificacaoFalta entidade)
+        public override bool Inserir(RetificacaoFalta entidade)
         {
-            // TODO: (!!!) Definir como o usuário receberá esse erro e como bloquear a inserção.
-            if (entidade.Status != Servico.StatusServico.Pendente)
-                registrarErro?.Invoke(nameof(entidade.Status), "Não é possível cadastrar serviço com esse status.");
-            if (entidade.Data > DateTime.Now)
-                registrarErro?.Invoke(nameof(entidade.Data), "Data inválida.");
+            var erroEncontrado = false;
 
-            base.Inserir(entidade);
+            if (entidade.Status != Servico.StatusServico.Pendente)
+                RegistrarErro(nameof(entidade.Status), "Não é possível cadastrar serviço com esse status.", ref erroEncontrado);
+            if (entidade.Data > DateTime.Now)
+                RegistrarErro(nameof(entidade.Data), "Data inválida.", ref erroEncontrado);
+
+            if (!erroEncontrado)
+                base.Inserir(entidade);
+
+            return !erroEncontrado;
         }
     }
 }

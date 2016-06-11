@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static SistemaAcademico.Dominio.Base.Servico;
 
-namespace SistemaAcademico.Servico.Models.Dto
+namespace SistemaAcademico.Servico.Dto
 {
     [DataContract]
     public class RevisaoAtividadeDto : Dto.Base.DtoDominio<RevisaoAtividade>

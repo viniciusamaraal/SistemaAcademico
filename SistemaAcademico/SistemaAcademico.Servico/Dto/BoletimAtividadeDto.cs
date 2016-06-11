@@ -1,5 +1,5 @@
 ﻿using SistemaAcademico.Dominio;
-using SistemaAcademico.Servico.Models.Dto.Base;
+using SistemaAcademico.Servico.Dto.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaAcademico.Servico.Models.Dto
+namespace SistemaAcademico.Servico.Dto
 {
     public class BoletimAtividadeDto : DtoDominio<MatriculaAtividade>
     {

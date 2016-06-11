@@ -1,13 +1,14 @@
 ﻿using SistemaAcademico.Dominio;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using static SistemaAcademico.Dominio.Base.Servico;
 
-namespace SistemaAcademico.Servico.Models.Dto
+namespace SistemaAcademico.Servico.Dto
 {
     [DataContract]
     public class RetificacaoFaltaDTO : Dto.Base.DtoDominio<RetificacaoFalta>
@@ -23,9 +24,11 @@ namespace SistemaAcademico.Servico.Models.Dto
         }
 
         [DataMember]
+        [Required]
         public int IdMatricula { get; set; }
 
         [DataMember]
+        [Required]
         public int IdOfertaGradeDisciplina { get; set; }
 
         [DataMember]
@@ -35,9 +38,11 @@ namespace SistemaAcademico.Servico.Models.Dto
         public Disciplina Disciplina { get; set; }
 
         [DataMember]
+        [Required]
         public DateTime DataFalta { get; set; }
 
         [DataMember]
+        [Required]
         public string Justificativa { get; set; }
 
         [DataMember]

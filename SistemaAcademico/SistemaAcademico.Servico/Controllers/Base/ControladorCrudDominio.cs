@@ -27,20 +27,21 @@ namespace SistemaAcademico.Servico.Controllers.Base
             if (id != entidade.Id)
                 return BadRequest();
 
-            Gerenciador.Editar(entidade);
-            return StatusCode(HttpStatusCode.NoContent);
+            if (Gerenciador.Editar(entidade))
+                return StatusCode(HttpStatusCode.NoContent);
+            return BadRequest(ModelState);
         }
 
         // POST: api/Entidade
         [HttpPost]
         public virtual IHttpActionResult Inserir(TDominio entidade)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            Gerenciador.Inserir(entidade);
-            // TODO: Verificar forma de não deixar rota chapada:
-            return CreatedAtRoute("DefaultApi", new { id = entidade.Id }, entidade);
+            if (!ModelState.IsValid && Gerenciador.Inserir(entidade))
+            {
+                // TODO: Verificar forma de não deixar rota chapada:
+                return CreatedAtRoute("DefaultApi", new { id = entidade.Id }, entidade);
+            }
+            return BadRequest(ModelState);
         }
     }
 }

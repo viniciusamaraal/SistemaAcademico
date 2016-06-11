@@ -1,6 +1,6 @@
 ﻿using SistemaAcademico.Dominio;
 using SistemaAcademico.Negocio.Gerenciador.Base;
-using SistemaAcademico.Servico.Models.Dto.Base;
+using SistemaAcademico.Servico.Dto.Base;
 using SistemaAcademico.Util.Excecao.Dado;
 using System;
 using System.Collections.Generic;
@@ -57,8 +57,9 @@ namespace SistemaAcademico.Servico.Controllers.Base
             if (id != dominio.Id)
                 return BadRequest();
 
-            Gerenciador.Editar(dominio);
-            return StatusCode(HttpStatusCode.NoContent);
+            if (Gerenciador.Editar(dominio))
+                return StatusCode(HttpStatusCode.NoContent);
+            return BadRequest(ModelState);
         }
 
         // POST: api/Entidade
@@ -70,9 +71,12 @@ namespace SistemaAcademico.Servico.Controllers.Base
 
             var dominio = entidade.ConstruirDominio();
 
-            Gerenciador.Inserir(dominio);
-            // TODO: Verificar forma de não deixar rota chapada:
-            return CreatedAtRoute("DefaultApi", new { id = entidade.Id }, entidade);
+            if (Gerenciador.Inserir(dominio))
+            {
+                // TODO: Verificar forma de não deixar rota chapada:
+                return CreatedAtRoute("DefaultApi", new { id = entidade.Id }, entidade);
+            }
+            return BadRequest(ModelState);
         }
     }
 }
