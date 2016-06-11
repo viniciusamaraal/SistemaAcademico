@@ -2,6 +2,7 @@
 using SistemaAcademico.Dados.Contrato;
 using SistemaAcademico.Dados.Repositorio.Base;
 using SistemaAcademico.Util.Delegates;
+using SistemaAcademico.Util.Reflexao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,18 +41,8 @@ namespace SistemaAcademico.Negocio.Gerenciador.Base
             {
                 if (_repositorio == null)
                 {
-                    var propriedades = typeof(Adaptador).GetProperties();
-                    foreach (PropertyInfo i in propriedades)
-                    {
-                        var tipo = i.PropertyType;
-                        // TODO: Verificar forma melhor de buscar o tipo da propriedade:
-                        if (tipo.BaseType.GenericTypeArguments.Any() &&
-                            tipo.BaseType.GenericTypeArguments[0].FullName == typeof(T).FullName)
-                        {
-                            _repositorio = i.GetValue(adaptador) as Repositorio<T>;
-                            break;
-                        }
-                    }
+                    _repositorio = adaptador.BuscarPropriedade<Repositorio<T>>();
+
                     if (_repositorio == null)
                         throw new NotImplementedException("Repositório não encontrado para o tipo " + typeof(T).FullName);
                 }

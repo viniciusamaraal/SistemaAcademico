@@ -1,6 +1,7 @@
 ﻿using SistemaAcademico.Dominio;
 using SistemaAcademico.Negocio.Gerenciador.Base;
 using SistemaAcademico.Util.Excecao.Dado;
+using SistemaAcademico.Util.Reflexao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,18 +31,8 @@ namespace SistemaAcademico.Servico.Controllers.Base
             {
                 if (_gerenciador == null)
                 {
-                    var propriedades = typeof(Adaptador).GetProperties();
-                    foreach (PropertyInfo i in propriedades)
-                    {
-                        var tipo = i.PropertyType;
-                        // TODO: Verificar forma melhor de buscar o tipo da propriedade:
-                        if (tipo.BaseType.GenericTypeArguments.Any() &&
-                            tipo.BaseType.GenericTypeArguments[0].FullName == typeof(TDominio).FullName)
-                        {
-                            _gerenciador = i.GetValue(adaptador) as GerenciadorDominio<TDominio>;
-                            break;
-                        }
-                    }
+                    _gerenciador = adaptador.BuscarPropriedade<GerenciadorDominio<TDominio>>();
+
                     if (_gerenciador == null)
                         throw new NotImplementedException("Gerenciador não encontrado para o tipo " + typeof(TDominio).FullName);
                 }

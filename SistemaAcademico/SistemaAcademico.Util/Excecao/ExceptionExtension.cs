@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Util.Excecao
 {
-    public static class ExceptionHelper
+    public static class ExceptionExtension
     {
         public static IEnumerable<string> BuscaTodasMensagens(this Exception ex)
         {
