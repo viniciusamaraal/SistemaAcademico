@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dados
 {
-    public partial class ContextoEntity : DbContext, IContexto
+    internal partial class ContextoEntity : DbContext, IContexto
     {
         private ContextoEntity(string conexao)
             : base(conexao)
@@ -69,21 +69,9 @@ namespace SistemaAcademico.Dados
 
         public int SalvarAlteracoes()
         {
-            return SalvarAlteracoesAsync(false).Result;
-        }
-
-        public async Task<int> SalvarAlteracoesAsync()
-        {
-            return await SalvarAlteracoesAsync(true);
-        }
-
-        private async Task<int> SalvarAlteracoesAsync(bool async)
-        {
             try
             {
-                if (async)
-                    return await SaveChangesAsync();
-                return  SaveChanges();
+                return SaveChanges();
             }
             catch (DbUpdateConcurrencyException ex)
             {

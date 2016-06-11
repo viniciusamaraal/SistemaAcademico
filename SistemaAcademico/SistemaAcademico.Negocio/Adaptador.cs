@@ -76,10 +76,6 @@ namespace SistemaAcademico.Negocio
             contexto.SalvarAlteracoes();
         }
 
-        internal async void SalvarAlteracoesAsync()
-        {
-            await contexto.SalvarAlteracoesAsync();
-        }
 
         public void Dispose()
         {

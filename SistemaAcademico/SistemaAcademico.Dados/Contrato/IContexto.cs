@@ -11,7 +11,6 @@ namespace SistemaAcademico.Dados.Contrato
     public interface IContexto : IDisposable
     {
         int SalvarAlteracoes();
-        Task<int> SalvarAlteracoesAsync();
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
