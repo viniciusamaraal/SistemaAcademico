@@ -8,20 +8,8 @@ using System.Threading.Tasks;
 using SistemaAcademico.Dados;
 using SistemaAcademico.Dados.Contrato;
 
-namespace SistemaAcademico.Dados
+namespace SistemaAcademico.Dados.EF
 {
-    // TODO: Avaliar se separamos essa classe.
-    public static class InicializadorHelper
-    {
-        public static void Adicionar<T>(this IEnumerable<T> entidades, IContexto contexto) where T : Dominio.Base.Dominio
-        {
-            foreach (var entidade in entidades)
-                contexto.Set<T>().Add(entidade);
-
-            contexto.SalvarAlteracoes();
-        }
-    }
-
     internal class Inicializador : DropCreateDatabaseIfModelChanges<ContextoEntity>
     {
         protected override void Seed(ContextoEntity contexto)

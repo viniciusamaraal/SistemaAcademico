@@ -1,4 +1,5 @@
 ﻿using SistemaAcademico.Dados.Contrato;
+using SistemaAcademico.Dados.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;

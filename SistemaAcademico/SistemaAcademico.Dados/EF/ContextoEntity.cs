@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaAcademico.Dados
+namespace SistemaAcademico.Dados.EF
 {
     internal partial class ContextoEntity : DbContext, IContexto
     {
