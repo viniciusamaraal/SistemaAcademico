@@ -38,9 +38,14 @@ namespace SistemaAcademico.Negocio.Gerenciador.Base
         {
         }
 
-        protected virtual void RegistrarErro(string chave, string mensagem, ref bool errosRegistrados)
+        protected virtual void RegistrarErro(string chave, string mensagem)
         {
             registrarErroCliente?.Invoke(chave, mensagem);
+        }
+
+        protected virtual void RegistrarErro(string chave, string mensagem, ref bool errosRegistrados)
+        {
+            RegistrarErro(chave, mensagem);
             errosRegistrados = true;
         }
 
