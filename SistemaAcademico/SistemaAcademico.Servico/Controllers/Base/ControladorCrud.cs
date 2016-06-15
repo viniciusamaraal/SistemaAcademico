@@ -14,7 +14,7 @@ using System.Web.Http.Description;
 
 namespace SistemaAcademico.Servico.Controllers.Base
 {
-    public class ControladorCrud<TDominio> : Controlador<TDominio> where TDominio : Dominio.Base.Dominio
+    public class ControladorCrud<TDominio> : Controlador where TDominio : Dominio.Base.Dominio
     {
         public ControladorCrud() : base()
         {

@@ -13,7 +13,7 @@ using System.Web.Http.Description;
 
 namespace SistemaAcademico.Servico.Controllers.Base
 {
-    public class Controlador<T> : ApiController where T : Dominio.Base.Dominio
+    public class Controlador : ApiController
     {
         protected readonly Adaptador adaptador;
 

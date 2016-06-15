@@ -12,7 +12,7 @@ using SistemaAcademico.Servico.Dto;
 
 namespace SistemaAcademico.Servico.Controllers
 {
-    public class BoletinsController : Controlador<Matricula>
+    public class BoletinsController : Controlador
     {
         [HttpGet]
         public IHttpActionResult Buscar(int id)
