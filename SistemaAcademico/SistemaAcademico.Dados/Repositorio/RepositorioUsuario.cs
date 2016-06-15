@@ -14,20 +14,21 @@ namespace SistemaAcademico.Dados.Repositorio
     {
         public RepositorioUsuario() : base()
         {
-
         }
 
         public RepositorioUsuario(IContexto contexto) : base(contexto)
         {
+        }
 
+        public override IEnumerable<Usuario> Buscar()
+        {
+            return dbSet.Include(u => u.Professores)
+                        .Include(u => u.Alunos);
         }
 
         public Usuario BuscarPorLogin(string login)
         {
-            return dbSet.Include(u => u.Professores)
-                        .Include(u => u.Alunos)
-                        .Where(u => u.Login == login)
-                        .FirstOrDefault();
+            return Buscar().FirstOrDefault(u => u.Login == login);
         }
     }
 }

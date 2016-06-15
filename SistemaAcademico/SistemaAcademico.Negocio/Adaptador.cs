@@ -71,6 +71,18 @@ namespace SistemaAcademico.Negocio
             }
         }
 
+        private RepositorioUsuario _repositorioUsuario;
+        public RepositorioUsuario RepositorioUsuario
+        {
+            get
+            {
+                if (this._repositorioUsuario == null)
+                    this._repositorioUsuario = new RepositorioUsuario(contexto);
+
+                return this._repositorioUsuario;
+            }
+        }
+
         internal void SalvarAlteracoes()
         {
             contexto.SalvarAlteracoes();
@@ -91,6 +103,7 @@ namespace SistemaAcademico.Negocio
                 _repositorioRetificacaoFalta?.Dispose();
                 _repositorioMatriculaAtividade?.Dispose();
                 _repositorioMatriculaOfertaGradeDisciplina?.Dispose();
+                _repositorioUsuario?.Dispose();
             }
         }
     }

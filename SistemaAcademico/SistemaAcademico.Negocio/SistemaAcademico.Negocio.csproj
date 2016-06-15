@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,10 +49,14 @@
     <Compile Include="Gerenciador\Base\Gerenciador.cs" />
     <Compile Include="ClasseTeste.cs" />
     <Compile Include="Gerenciador\Base\GerenciadorServico.cs" />
+    <Compile Include="Gerenciador\GerenciadorUsuario.cs" />
     <Compile Include="Gerenciador\GerenciadorMatricula.cs" />
     <Compile Include="Gerenciador\GerenciadorRetificacaoFalta.cs" />
     <Compile Include="Gerenciador\GerenciadorDisciplina.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Token\Contrato\IEmissorToken.cs" />
+    <Compile Include="Token\EmissorTokenFactory.cs" />
+    <Compile Include="Token\EmissorTokenGuid.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SistemaAcademico.Dados\SistemaAcademico.Dados.csproj">
@@ -64,6 +72,10 @@
       <Name>SistemaAcademico.Util</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

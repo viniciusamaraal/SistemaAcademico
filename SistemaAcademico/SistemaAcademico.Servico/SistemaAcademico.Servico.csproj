@@ -95,11 +95,14 @@
     <Compile Include="Controllers\Base\ControladorCrudDto.cs" />
     <Compile Include="Controllers\Base\ControladorCrud.cs" />
     <Compile Include="Controllers\Base\Controlador.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\BoletinsController.cs" />
     <Compile Include="Controllers\DisciplinasController.cs" />
     <Compile Include="Controllers\GradesController.cs" />
     <Compile Include="Controllers\RetificacoesFaltaController.cs" />
     <Compile Include="Controllers\RevisoesAtividadeController.cs" />
+    <Compile Include="Dto\AutenticacaoDto.cs" />
+    <Compile Include="Dto\UsuarioDto.cs" />
     <Compile Include="Dto\BoletimAtividadeDto.cs" />
     <Compile Include="Dto\Base\DtoDominio.cs" />
     <Compile Include="Dto\BoletimDisciplinaDto.cs" />

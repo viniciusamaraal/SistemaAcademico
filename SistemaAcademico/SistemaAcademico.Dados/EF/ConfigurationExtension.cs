@@ -28,7 +28,6 @@ namespace SistemaAcademico.Dados.EF
         // TODO: Método desnecessário, mas interessante de ser criado para uso em outros lugares.
         //public static TEstrutura HasIndex<TEstrutura, TEntidade>(this TEstrutura asd, propriedades) where TEstrutura : StructuralTypeConfiguration<TEntidade> where TEntidade : class
         //{
-            
         //}
     }
 }

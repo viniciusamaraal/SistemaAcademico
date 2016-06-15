@@ -58,6 +58,18 @@ namespace SistemaAcademico.Servico
             }
         }
 
+        private GerenciadorUsuario _gerenciadorUsuario;
+        public GerenciadorUsuario GerenciadorUsuario
+        {
+            get
+            {
+                if (this._gerenciadorUsuario == null)
+                    this._gerenciadorUsuario = new GerenciadorUsuario(registrarErro);
+
+                return this._gerenciadorUsuario;
+            }
+        }
+
         public void Dispose()
         {
             Dispose(true);
@@ -71,6 +83,7 @@ namespace SistemaAcademico.Servico
                 _gerenciadorDisciplina?.Dispose();
                 _gerenciadorRetificacaoFalta?.Dispose();
                 _gerenciadorMatricula?.Dispose();
+                _gerenciadorUsuario?.Dispose();
             }
         }
     }
