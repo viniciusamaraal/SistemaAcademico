@@ -28,7 +28,7 @@ namespace SistemaAcademico.Dados.Repositorio
 
         public Usuario BuscarPorLogin(string login)
         {
-            return Buscar().FirstOrDefault(u => u.Login == login);
+            return Buscar().FirstOrDefault(u => string.Equals(u.Login, login, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }
