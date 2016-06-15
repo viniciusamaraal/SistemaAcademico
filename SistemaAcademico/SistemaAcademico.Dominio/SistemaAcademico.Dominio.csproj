@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Dominio.cs" />
+    <Compile Include="Base\PerfilPessoa.cs" />
+    <Compile Include="Base\Pessoa.cs" />
     <Compile Include="GradeDisciplina.cs" />
     <Compile Include="MatriculaOfertaGradeDisciplina.cs" />
     <Compile Include="Professor.cs" />
