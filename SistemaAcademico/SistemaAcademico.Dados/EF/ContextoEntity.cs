@@ -37,19 +37,23 @@ namespace SistemaAcademico.Dados.EF
             modelBuilder.Properties<string>().Configure(c => c.HasColumnType("varchar"));
 
             modelBuilder.Entity<Aluno>()
-                .HasRequired(c => c.Usuario)
-                .WithMany()
+                .HasRequired(a => a.Usuario)
+                .WithMany(u => u.Alunos)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Professor>()
-                .HasRequired(c => c.Usuario)
-                .WithMany()
+                .HasRequired(p => p.Usuario)
+                .WithMany(u => u.Professores)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Atividade>()
                 .HasRequired(a => a.OfertaGradeDisciplina)
-                .WithMany(a => a.Atividades)
+                .WithMany(ogd => ogd.Atividades)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Usuario>()
+                .Property(u => u.Login)
+                .IsUnique();
         }
 
         public DbSet<Aluno> Aluno { get; set; }
