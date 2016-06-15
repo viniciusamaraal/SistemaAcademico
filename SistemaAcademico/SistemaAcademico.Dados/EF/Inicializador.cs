@@ -41,8 +41,8 @@ namespace SistemaAcademico.Dados.EF
 
             new List<Usuario>
             {
-                new Usuario {Login= "jose" },
-                new Usuario {Login= "harry" }
+                new Usuario {Login= "jose", Senha= "$2a$08$EMgN29i6OLLiqy.Zj6XKbuiluLZibX2Eqz6txGk8mFNxjeTdHmvKK" },  // Senha = 123456
+                new Usuario {Login= "harry", Senha = "$2a$08$Q1KFtweicHfp1LLztxiSWO2sdX6Hv9LootUhkuEN71qwphkuElfVC" } // Senha = 123456
             }.Adicionar(contexto);
 
             new List<Professor>
