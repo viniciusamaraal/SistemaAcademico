@@ -33,7 +33,7 @@ namespace SistemaAcademico.Servico.Controllers.Base
 
         public override IHttpActionResult Buscar()
         {
-            return Ok(Gerenciador.Buscar().Select(rf => CriarDto(rf)));
+            return Ok(Gerenciador.Buscar().Select(rf => CriarDto(rf)).ToList());
         }
 
         public override IHttpActionResult Buscar(int id)

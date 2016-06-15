@@ -45,7 +45,7 @@ namespace SistemaAcademico.Servico.Controllers.Base
         [HttpGet]
         public virtual IHttpActionResult Buscar()
         {
-            return Ok(Gerenciador.Buscar());
+            return Ok(Gerenciador.Buscar().ToList());
         }
 
         // GET: api/Entidade/5
