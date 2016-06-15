@@ -12,7 +12,7 @@ namespace SistemaAcademico.Dominio.Base
     public abstract class Servico : Dominio
     {
         [DataMember]
-        public DateTime Data { get; set; }
+        public DateTime DataRequisicao { get; set; }
 
         [DataMember]
         public StatusServico Status { get; set; }

@@ -51,7 +51,7 @@ namespace SistemaAcademico.Dados.EF
             }.Adicionar(contexto);
 
 
-            new List<Aluno> // TODO: Corrigir para impedir professor e aluno com mesmo usuário.
+            new List<Aluno> // TODO: Impedir professor e aluno com mesmo usuário?
             {
                 new Aluno {Nome= "Pedro", IdUsuario = 2 }
             }.Adicionar(contexto);
@@ -85,6 +85,11 @@ namespace SistemaAcademico.Dados.EF
                 new MatriculaAtividade {IdAtividade = 1, IdMatriculaOfertaGradeDisciplina = 1, Nota = 9 },
                 new MatriculaAtividade {IdAtividade = 2, IdMatriculaOfertaGradeDisciplina = 1, Nota = 12 },
                 new MatriculaAtividade {IdAtividade = 3, IdMatriculaOfertaGradeDisciplina = 2, Nota = 10 },
+            }.Adicionar(contexto);
+
+            new List<RetificacaoFalta>
+            {
+                new RetificacaoFalta {IdMatricula = 1, IdOfertaGradeDisciplina = 1, DataRequisicao=DateTime.Now, DataFalta = DateTime.Now.Date.AddDays(-10), Justificativa = "Estava em conferência." }
             }.Adicionar(contexto);
         }
     }

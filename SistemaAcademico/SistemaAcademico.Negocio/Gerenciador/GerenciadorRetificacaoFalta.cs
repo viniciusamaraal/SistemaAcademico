@@ -10,25 +10,20 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Negocio.Gerenciador
 {
-    public class GerenciadorRetificacaoFalta : GerenciadorDominio<RetificacaoFalta>
+    public class GerenciadorRetificacaoFalta : GerenciadorServico<RetificacaoFalta>
     {
         public GerenciadorRetificacaoFalta(RegistraErro registraErro) : base(registraErro)
         {
         }
 
-        public override bool Inserir(RetificacaoFalta entidade)
+        public override bool Inserir(RetificacaoFalta entidade, bool apenasValidar = false)
         {
             var erroEncontrado = false;
 
-            if (entidade.Status != Servico.StatusServico.Pendente)
-                RegistrarErro(nameof(entidade.Status), "Não é possível cadastrar serviço com esse status.", ref erroEncontrado);
-            if (entidade.Data > DateTime.Now)
-                RegistrarErro(nameof(entidade.Data), "Data inválida.", ref erroEncontrado);
+            if (entidade.DataFalta > DateTime.Now)
+                RegistrarErro(nameof(entidade.DataFalta), "Data inválida.", ref erroEncontrado);
 
-            if (!erroEncontrado)
-                base.Inserir(entidade);
-
-            return !erroEncontrado;
+            return base.Inserir(entidade, apenasValidar || erroEncontrado);
         }
     }
 }

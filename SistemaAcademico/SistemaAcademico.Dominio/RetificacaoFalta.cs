@@ -18,6 +18,9 @@ namespace SistemaAcademico.Dominio
         [ForeignKey(nameof(OfertaGradeDisciplina))]
         public int IdOfertaGradeDisciplina { get; set; }
 
+        [DataMember]
+        public DateTime DataFalta { get; set; }
+
         public virtual Matricula Matricula { get; set; }
         public virtual OfertaGradeDisciplina OfertaGradeDisciplina { get; set; }
     }

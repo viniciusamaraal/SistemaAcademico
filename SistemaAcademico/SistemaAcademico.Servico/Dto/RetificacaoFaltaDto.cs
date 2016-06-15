@@ -59,7 +59,7 @@ namespace SistemaAcademico.Servico.Dto
             return new RetificacaoFalta
             {
                 Id = this.Id,
-                Data = this.DataFalta,
+                DataFalta = this.DataFalta,
                 IdMatricula = this.IdMatricula,
                 IdOfertaGradeDisciplina = this.IdOfertaGradeDisciplina,
                 Justificativa = this.Justificativa,
@@ -74,11 +74,11 @@ namespace SistemaAcademico.Servico.Dto
             this.IdOfertaGradeDisciplina = retificacao.IdOfertaGradeDisciplina;
             this.NomeAluno = retificacao.Matricula.Aluno.Nome;
             this.Disciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.Disciplina;
-            this.DataFalta = retificacao.Data;
+            this.DataFalta = retificacao.DataFalta;
             this.Justificativa = retificacao.Justificativa;
             this.IdStatus = (int)retificacao.Status;
             this.NomeStatus = retificacao.Status.ToString();
-            this.DataRequisicao = retificacao.Data; // TODO: Mapear no banco.
+            this.DataRequisicao = retificacao.DataRequisicao;
         }
     }
 }

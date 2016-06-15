@@ -32,7 +32,7 @@ namespace SistemaAcademico.Servico.Dto
         public string NomeAtividade { get; set; }
 
         [DataMember]
-        public string DataAtividade { get; set; }
+        public DateTime DataAtividade { get; set; }
 
         [DataMember]
         public DateTime DataRequisicao { get; set; }
@@ -52,7 +52,7 @@ namespace SistemaAcademico.Servico.Dto
             {
                 Id = this.Id,
                 IdAlunoAtividade = this.IdAlunoAtividade,
-                Data = this.DataRequisicao,
+                DataRequisicao = this.DataRequisicao,
                 Justificativa = this.Justificativa,
                 Status = (StatusServico)this.IdStatus
             };
@@ -64,8 +64,8 @@ namespace SistemaAcademico.Servico.Dto
             this.IdAlunoAtividade = revisao.IdAlunoAtividade;
             this.NomeDisciplina = revisao.AlunoAtividade.Atividade.OfertaGradeDisciplina.GradeDisciplina.Disciplina.Nome;
             this.NomeAtividade = revisao.AlunoAtividade.Atividade.Nome;
-            // this.DataAtividade = ; TODO: incluir no banco
-            this.DataRequisicao = revisao.Data;
+            this.DataAtividade = revisao.AlunoAtividade.Atividade.Data;
+            this.DataRequisicao = revisao.DataRequisicao;
             this.Justificativa = revisao.Justificativa;
             this.IdStatus = (int)revisao.Status;
             this.NomeStatus = revisao.Status.ToString();

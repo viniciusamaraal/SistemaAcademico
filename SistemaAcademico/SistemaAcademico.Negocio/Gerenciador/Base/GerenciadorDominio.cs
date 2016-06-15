@@ -61,15 +61,21 @@ namespace SistemaAcademico.Negocio.Gerenciador.Base
             return Repositorio.Buscar(id);
         }
 
-        public virtual bool Editar(T entidade)
+        public virtual bool Editar(T entidade, bool apenasValidar = false)
         {
+            if (apenasValidar)
+                return false;
+
             Repositorio.Editar(entidade);
             adaptador.SalvarAlteracoes();
             return true;
         }
 
-        public virtual bool Inserir(T entidade)
+        public virtual bool Inserir(T entidade, bool apenasValidar = false)
         {
+            if (apenasValidar)
+                return false;
+
             Repositorio.Inserir(entidade);
             adaptador.SalvarAlteracoes();
             return true;
