@@ -25,7 +25,7 @@ namespace SistemaAcademico.Servico.Dto
         [DataMember]
         public Disciplina Disciplina { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "Atividades")]
         public List<BoletimAtividadeDto> MatriculaAtividades { get; set; }
 
         public void ConstruirDto(Disciplina disciplina, IEnumerable<MatriculaAtividade> matriculaAtividade)
