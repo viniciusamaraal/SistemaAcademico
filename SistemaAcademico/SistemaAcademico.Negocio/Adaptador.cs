@@ -109,6 +109,18 @@ namespace SistemaAcademico.Negocio
             }
         }
 
+        private RepositorioGradeDisciplina _repositorioGrade;
+        public RepositorioGradeDisciplina RepositorioGrade
+        {
+            get
+            {
+                if (this._repositorioGrade == null)
+                    this._repositorioGrade = new RepositorioGradeDisciplina(contexto);
+
+                return this._repositorioGrade;
+            }
+        }
+
         internal void SalvarAlteracoes()
         {
             contexto.SalvarAlteracoes();
@@ -131,6 +143,7 @@ namespace SistemaAcademico.Negocio
                 _repositorioMatricula?.Dispose();
                 _repositorioUsuario?.Dispose();
                 _repositorioAluno?.Dispose();
+                _repositorioGrade?.Dispose();
             }
         }
     }

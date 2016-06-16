@@ -18,6 +18,8 @@ namespace SistemaAcademico.Dominio
         public int IdDisciplina { get; set; }
 
         public virtual Grade Grade { get; set; }
+
+        [DataMember]
         public virtual Disciplina Disciplina { get; set; }
 
         public virtual ICollection<Oferta> Ofertas { get; set; }

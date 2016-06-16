@@ -95,6 +95,18 @@ namespace SistemaAcademico.Servico
             }
         }
 
+        private GerenciadorGradeDisciplina _gerenciadorGrade;
+        public GerenciadorGradeDisciplina GerenciadorGrade
+        {
+            get
+            {
+                if (this._gerenciadorGrade == null)
+                    this._gerenciadorGrade = new GerenciadorGradeDisciplina(registrarErro);
+
+                return this._gerenciadorGrade;
+            }
+        }
+
         public void Dispose()
         {
             Dispose(true);
@@ -111,6 +123,7 @@ namespace SistemaAcademico.Servico
                 _gerenciadorMatriculaAtividade?.Dispose();
                 _gerenciadorUsuario?.Dispose();
                 _gerenciadorAluno?.Dispose();
+                _gerenciadorGrade?.Dispose();
             }
         }
     }

@@ -11,12 +11,15 @@ namespace SistemaAcademico.Dominio
     [DataContract]
     public class Grade : Base.Dominio
     {
+        [DataMember]
         public string Nome { get; set; }
 
         [ForeignKey(nameof(Curso))]
         public int IdCurso { get; set; }
 
         public virtual Curso Curso { get; set; }
-        public virtual ICollection<GradeDisciplina> GradesCurricularesDisciplina { get; set; }
+
+        [DataMember]
+        public virtual ICollection<GradeDisciplina> GradeDisciplinas { get; set; }
     }
 }

@@ -9,11 +9,11 @@ using System.Web.Http;
 
 namespace SistemaAcademico.Servico.Controllers
 {
-    public class GradesController : ControladorCrudDominio<Grade>
+    public class GradesController : ControladorCrudDominio<GradeDisciplina>
     {
-         /**
-         * Listar as disciplinas que compõem a grade de acordo com o idUsuario:
-         *      GradeDisciplina.OfertaGradeDisciplina.MatriculaOfertaGradeDisciplina
-         **/
+        public override IHttpActionResult Buscar()
+        {
+            return Ok(Gerenciador.Buscar().GroupBy(gd => gd.Grade).Select(gd => gd.Key).ToList());
+        }
     }
 }
