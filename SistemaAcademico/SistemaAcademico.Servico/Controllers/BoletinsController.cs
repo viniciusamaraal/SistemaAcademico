@@ -21,7 +21,7 @@ namespace SistemaAcademico.Servico.Controllers
             var atividadesPorDisciplina = atividades.GroupBy(
                 a => a.MatriculaOfertaGradeDisciplina.OfertaGradeDisciplina.GradeDisciplina.Disciplina
             );
-            return Ok(atividadesPorDisciplina.Select(a => new BoletimDisciplinaDto(a.Key, a)));
+            return Ok(new BoletimDto(id, atividadesPorDisciplina));
         }
     }
 }

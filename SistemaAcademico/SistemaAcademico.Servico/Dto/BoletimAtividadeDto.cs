@@ -40,6 +40,7 @@ namespace SistemaAcademico.Servico.Dto
 
         public override void ConstruirDto(MatriculaAtividade matriculaAtividade)
         {
+            this.Id = matriculaAtividade.Id;
             this.Nome = matriculaAtividade.Atividade.Nome;
             this.Valor = matriculaAtividade.Atividade.Valor;
             this.Nota = matriculaAtividade.Nota;
