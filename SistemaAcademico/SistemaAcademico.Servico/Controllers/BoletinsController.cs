@@ -17,11 +17,8 @@ namespace SistemaAcademico.Servico.Controllers
         [HttpGet]
         public IHttpActionResult Buscar(int id)
         {
-            var atividades = adaptador.GerenciadorMatricula.BuscarAtividades(id);
-            var atividadesPorDisciplina = atividades.GroupBy(
-                a => a.MatriculaOfertaGradeDisciplina.OfertaGradeDisciplina.GradeDisciplina.Disciplina
-            );
-            return Ok(new BoletimDto(id, atividadesPorDisciplina));
+            var atividades = adaptador.GerenciadorMatriculaAtividade.BuscaAtividadesPorMatricula(id).ToList();
+            return Ok(new BoletimDto(atividades.First().Key.Matricula, atividades));
         }
     }
 }

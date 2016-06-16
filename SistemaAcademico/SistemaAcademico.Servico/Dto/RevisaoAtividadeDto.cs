@@ -62,7 +62,7 @@ namespace SistemaAcademico.Servico.Dto
         {
             base.Id = revisao.Id;
             this.IdAlunoAtividade = revisao.IdAlunoAtividade;
-            this.NomeDisciplina = revisao.AlunoAtividade.Atividade.OfertaGradeDisciplina.GradeDisciplina.Disciplina.Nome;
+            this.NomeDisciplina = revisao.AlunoAtividade.Atividade.Oferta.GradeDisciplina.Disciplina.Nome;
             this.NomeAtividade = revisao.AlunoAtividade.Atividade.Nome;
             this.DataAtividade = revisao.AlunoAtividade.Atividade.Data;
             this.DataRequisicao = revisao.DataRequisicao;

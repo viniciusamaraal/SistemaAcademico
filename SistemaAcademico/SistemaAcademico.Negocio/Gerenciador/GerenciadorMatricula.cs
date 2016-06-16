@@ -15,16 +15,11 @@ namespace SistemaAcademico.Negocio.Gerenciador
         {
         }
 
-        public IEnumerable<MatriculaAtividade> BuscarAtividades(int idMatricula)
-        {
-            return adaptador.RepositorioMatriculaAtividade.BuscarPorMatricula(idMatricula);
-        }
-
         // TODO: Definir em qual controller isso deve ser chamado:
         // Listas as disciplinas do aluno no momento para os serviços de retificação.
-        public IEnumerable<MatriculaOfertaGradeDisciplina> BuscarDisciplinas(int idMatricula)
+        public IEnumerable<MatriculaOferta> BuscarDisciplinas(int idMatricula)
         {
-            return adaptador.RepositorioMatriculaOfertaGradeDisciplina.BuscarPorMatricula(idMatricula);
+            return adaptador.RepositorioMatriculaOferta.BuscarPorMatricula(idMatricula);
         }
 
         public IEnumerable<Matricula> BuscarMatriculas(int idAluno)

@@ -59,6 +59,18 @@ namespace SistemaAcademico.Servico
             }
         }
 
+        private GerenciadorMatriculaAtividade _gerenciadorMatriculaAtividade;
+        public GerenciadorMatriculaAtividade GerenciadorMatriculaAtividade
+        {
+            get
+            {
+                if (this._gerenciadorMatriculaAtividade == null)
+                    this._gerenciadorMatriculaAtividade = new GerenciadorMatriculaAtividade(registrarErro);
+
+                return this._gerenciadorMatriculaAtividade;
+            }
+        }
+
         private GerenciadorUsuario _gerenciadorUsuario;
         public GerenciadorUsuario GerenciadorUsuario
         {
@@ -96,6 +108,7 @@ namespace SistemaAcademico.Servico
                 _gerenciadorDisciplina?.Dispose();
                 _gerenciadorRetificacaoFalta?.Dispose();
                 _gerenciadorMatricula?.Dispose();
+                _gerenciadorMatriculaAtividade?.Dispose();
                 _gerenciadorUsuario?.Dispose();
                 _gerenciadorAluno?.Dispose();
             }

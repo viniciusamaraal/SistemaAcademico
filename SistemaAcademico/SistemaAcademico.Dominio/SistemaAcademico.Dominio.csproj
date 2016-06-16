@@ -46,11 +46,11 @@
     <Compile Include="Base\PerfilPessoa.cs" />
     <Compile Include="Base\Pessoa.cs" />
     <Compile Include="GradeDisciplina.cs" />
-    <Compile Include="MatriculaOfertaGradeDisciplina.cs" />
+    <Compile Include="MatriculaOferta.cs" />
     <Compile Include="Professor.cs" />
     <Compile Include="Aluno.cs" />
     <Compile Include="MatriculaAtividade.cs" />
-    <Compile Include="OfertaGradeDisciplina.cs" />
+    <Compile Include="Oferta.cs" />
     <Compile Include="Matricula.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="Atividade.cs" />

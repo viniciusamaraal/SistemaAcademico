@@ -22,11 +22,25 @@ namespace SistemaAcademico.Dados.Repositorio
 
         }
 
-        public IEnumerable<MatriculaAtividade> BuscarPorMatricula(int idMatricula)
+        public override IEnumerable<MatriculaAtividade> Buscar()
         {
-            return dbSet.Include(m => m.MatriculaOfertaGradeDisciplina.OfertaGradeDisciplina.GradeDisciplina.Disciplina)
+            return dbSet.Include(m => m.MatriculaOferta.Oferta.GradeDisciplina.Disciplina)
                         .Include(m => m.Atividade)
-                        .Where(m => m.MatriculaOfertaGradeDisciplina.IdMatricula == idMatricula);
+                        .Include(m => m.MatriculaOferta.Matricula);
+        }
+
+        public IEnumerable<IGrouping<MatriculaOferta, MatriculaAtividade>> BuscarPorMatricula(int idMatricula)
+        {
+            return Buscar().Where(m => m.MatriculaOferta.IdMatricula == idMatricula)
+                           .GroupBy(ma => ma.MatriculaOferta);
+        }
+
+        public IEnumerable<IGrouping<Matricula, IGrouping<MatriculaOferta, MatriculaAtividade>>> BuscarPorAluno(int idAluno)
+        {
+            return Buscar().Where(ma => ma.MatriculaOferta.Matricula.IdAluno == idAluno)
+                           .GroupBy(ma => ma.MatriculaOferta)
+                           .GroupBy(g => g.Key.Matricula)
+                           .OrderBy(g => g.Key.Periodo);
         }
     }
 }

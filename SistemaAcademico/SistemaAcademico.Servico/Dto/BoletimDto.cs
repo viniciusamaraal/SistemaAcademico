@@ -17,22 +17,26 @@ namespace SistemaAcademico.Servico.Dto
 
         }
 
-        public BoletimDto(int idMatricula, IEnumerable<IGrouping<Disciplina, MatriculaAtividade>> boletim)
+        public BoletimDto(Matricula matricula, IEnumerable<IGrouping<MatriculaOferta, MatriculaAtividade>> boletim)
         {
-            ConstruirDto(idMatricula, boletim);
+            ConstruirDto(matricula, boletim);
         }
 
         [DataMember]
         public int Id { get; set; }
 
+        [DataMember]
+        public int Periodo { get; set; }
+
         [DataMember(Name = "Disciplinas")]
         public IEnumerable<BoletimDisciplinaDto> BoletimDisciplinas { get; set; }
 
-        public void ConstruirDto(int idMatricula, IEnumerable<IGrouping<Disciplina, MatriculaAtividade>> boletim)
+        public void ConstruirDto(Matricula matricula, IEnumerable<IGrouping<MatriculaOferta, MatriculaAtividade>> boletim)
         {
-            this.Id = idMatricula;
+            this.Id = matricula.Id;
+            this.Periodo = matricula.Periodo;
 
-            this.BoletimDisciplinas = new List<BoletimDisciplinaDto>(boletim.Select(b => new BoletimDisciplinaDto(b.Key, b)));
+            this.BoletimDisciplinas = new List<BoletimDisciplinaDto>(boletim.Select(b => new BoletimDisciplinaDto(b.Key.Oferta.GradeDisciplina.Disciplina, b)));
         }
     }
 }

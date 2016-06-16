@@ -60,15 +60,15 @@ namespace SistemaAcademico.Negocio
             }
         }
 
-        private RepositorioMatriculaOfertaGradeDisciplina _repositorioMatriculaOfertaGradeDisciplina;
-        public RepositorioMatriculaOfertaGradeDisciplina RepositorioMatriculaOfertaGradeDisciplina
+        private RepositorioMatriculaOferta _repositorioMatriculaOferta;
+        public RepositorioMatriculaOferta RepositorioMatriculaOferta
         {
             get
             {
-                if (this._repositorioMatriculaOfertaGradeDisciplina == null)
-                    this._repositorioMatriculaOfertaGradeDisciplina = new RepositorioMatriculaOfertaGradeDisciplina(contexto);
+                if (this._repositorioMatriculaOferta == null)
+                    this._repositorioMatriculaOferta = new RepositorioMatriculaOferta(contexto);
 
-                return this._repositorioMatriculaOfertaGradeDisciplina;
+                return this._repositorioMatriculaOferta;
             }
         }
 
@@ -127,7 +127,7 @@ namespace SistemaAcademico.Negocio
                 _repositorioDisciplina?.Dispose();
                 _repositorioRetificacaoFalta?.Dispose();
                 _repositorioMatriculaAtividade?.Dispose();
-                _repositorioMatriculaOfertaGradeDisciplina?.Dispose();
+                _repositorioMatriculaOferta?.Dispose();
                 _repositorioMatricula?.Dispose();
                 _repositorioUsuario?.Dispose();
                 _repositorioAluno?.Dispose();

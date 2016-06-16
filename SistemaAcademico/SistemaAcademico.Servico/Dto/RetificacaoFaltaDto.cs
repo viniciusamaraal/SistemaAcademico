@@ -29,7 +29,7 @@ namespace SistemaAcademico.Servico.Dto
 
         [DataMember]
         [Required]
-        public int IdOfertaGradeDisciplina { get; set; }
+        public int IdOferta { get; set; }
 
         [DataMember]
         public string NomeAluno { get; set; }
@@ -61,7 +61,7 @@ namespace SistemaAcademico.Servico.Dto
                 Id = this.Id,
                 DataFalta = this.DataFalta,
                 IdMatricula = this.IdMatricula,
-                IdOfertaGradeDisciplina = this.IdOfertaGradeDisciplina,
+                IdOferta = this.IdOferta,
                 Justificativa = this.Justificativa,
                 Status = (StatusServico)this.IdStatus
             };
@@ -71,9 +71,9 @@ namespace SistemaAcademico.Servico.Dto
         {
             base.Id = retificacao.Id;
             this.IdMatricula = retificacao.IdMatricula;
-            this.IdOfertaGradeDisciplina = retificacao.IdOfertaGradeDisciplina;
+            this.IdOferta = retificacao.IdOferta;
             this.NomeAluno = retificacao.Matricula.Aluno.Nome;
-            this.Disciplina = retificacao.OfertaGradeDisciplina.GradeDisciplina.Disciplina;
+            this.Disciplina = retificacao.Oferta.GradeDisciplina.Disciplina;
             this.DataFalta = retificacao.DataFalta;
             this.Justificativa = retificacao.Justificativa;
             this.IdStatus = (int)retificacao.Status;

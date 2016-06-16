@@ -18,6 +18,6 @@ namespace SistemaAcademico.Dominio
         public int IdAluno { get; set; }
 
         public virtual Aluno Aluno { get; set; }
-        public virtual ICollection<MatriculaOfertaGradeDisciplina> MatriculasOfertasGradesDisciplina { get; set; }
+        public virtual ICollection<MatriculaOferta> MatriculasOfertasGradesDisciplina { get; set; }
     }
 }

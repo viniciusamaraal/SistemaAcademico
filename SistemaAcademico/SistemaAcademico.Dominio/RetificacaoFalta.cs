@@ -15,13 +15,13 @@ namespace SistemaAcademico.Dominio
         [ForeignKey(nameof(Matricula))]
         public int IdMatricula { get; set; }
 
-        [ForeignKey(nameof(OfertaGradeDisciplina))]
-        public int IdOfertaGradeDisciplina { get; set; }
+        [ForeignKey(nameof(Oferta))]
+        public int IdOferta { get; set; }
 
         [DataMember]
         public DateTime DataFalta { get; set; }
 
         public virtual Matricula Matricula { get; set; }
-        public virtual OfertaGradeDisciplina OfertaGradeDisciplina { get; set; }
+        public virtual Oferta Oferta { get; set; }
     }
 }

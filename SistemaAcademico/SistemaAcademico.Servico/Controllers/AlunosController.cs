@@ -19,9 +19,21 @@ namespace SistemaAcademico.Servico.Controllers
         public IHttpActionResult BuscaMatriculasAluno(int idAluno)
         {
             var matriculas = adaptador.GerenciadorMatricula.BuscarMatriculas(idAluno).ToList();
-            if (!matriculas.Any() && !adaptador.GerenciadorAluno.Existe(idAluno))
+            if (matriculas.Count < 1 && !adaptador.GerenciadorAluno.Existe(idAluno))
                 return NotFound();
+
             return Ok(matriculas);
+        }
+
+        [HttpGet]
+        [Route("api/Alunos/{idAluno}/Historico")]
+        public IHttpActionResult BuscaHistoricoAluno(int idAluno)
+        {
+            var atividades = adaptador.GerenciadorMatriculaAtividade.BuscaAtividadesPorAluno(idAluno).ToList();
+            if (atividades.Count < 1 && !adaptador.GerenciadorAluno.Existe(idAluno))
+                return NotFound();
+
+            return Ok(atividades.Select(a => new BoletimDto(a.Key, a)));
         }
     }
 }

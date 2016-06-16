@@ -47,7 +47,7 @@ namespace SistemaAcademico.Dados.EF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Atividade>()
-                .HasRequired(a => a.OfertaGradeDisciplina)
+                .HasRequired(a => a.Oferta)
                 .WithMany(ogd => ogd.Atividades)
                 .WillCascadeOnDelete(false);
 
@@ -64,8 +64,8 @@ namespace SistemaAcademico.Dados.EF
         public DbSet<Grade> Grade { get; set; }
         public DbSet<GradeDisciplina> GradeDisciplina { get; set; }
         public DbSet<Matricula> Matricula { get; set; }
-        public DbSet<MatriculaOfertaGradeDisciplina> MatriculaOfertaGradeDisciplina { get; set; }
-        public DbSet<OfertaGradeDisciplina> OfertaGradeDisciplina { get; set; }
+        public DbSet<MatriculaOferta> MatriculaOferta { get; set; }
+        public DbSet<Oferta> Oferta { get; set; }
         public DbSet<Professor> Professor { get; set; }
         public DbSet<RetificacaoFalta> RetificacaoFalta { get; set; }
         public DbSet<RevisaoAtividade> RevisaoAtividade { get; set; }

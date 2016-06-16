@@ -10,21 +10,21 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Dados.Repositorio
 {
-    public class RepositorioMatriculaOfertaGradeDisciplina : Repositorio<MatriculaOfertaGradeDisciplina>
+    public class RepositorioMatriculaOferta : Repositorio<MatriculaOferta>
     {
-        public RepositorioMatriculaOfertaGradeDisciplina() : base()
+        public RepositorioMatriculaOferta() : base()
         {
 
         }
 
-        public RepositorioMatriculaOfertaGradeDisciplina(IContexto contexto) : base(contexto)
+        public RepositorioMatriculaOferta(IContexto contexto) : base(contexto)
         {
 
         }
 
-        public IEnumerable<MatriculaOfertaGradeDisciplina> BuscarPorMatricula(int idMatricula)
+        public IEnumerable<MatriculaOferta> BuscarPorMatricula(int idMatricula)
         {
-            return dbSet.Include(m => m.OfertaGradeDisciplina.GradeDisciplina.Disciplina)
+            return dbSet.Include(m => m.Oferta.GradeDisciplina.Disciplina)
                         .Where(m => m.IdMatricula == idMatricula);
         }
     }
