@@ -1,0 +1,267 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SistemaAcademico",
+		"_postman_id": "f0d31bbc-644c-8939-537f-f77ed6e3d811",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autenticação",
+			"description": "",
+			"item": [
+				{
+					"name": "Autenticação Professor",
+					"request": {
+						"url": "http://localhost:34470/api/Usuarios/Autenticar",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"usuario\": \"jose\",\n    \"senha\": \"123456\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Autenticação Aluno",
+					"request": {
+						"url": "http://localhost:34470/api/Usuarios/Autenticar",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"usuario\": \"hArrY\",\n    \"senha\": \"123456\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Diciplinas",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Disciplinas localhost",
+					"request": {
+						"url": "http://localhost:34470/api/Disciplinas",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Grade Curricular",
+			"description": "",
+			"item": [
+				{
+					"name": "Busca as grades",
+					"request": {
+						"url": "http://localhost:34470/api/Grades",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Histórico Escolar",
+			"description": "",
+			"item": [
+				{
+					"name": "Busca histórico de um aluno",
+					"request": {
+						"url": "http://localhost:34470/api/Alunos/1/Historico",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Matrículas",
+			"description": "",
+			"item": [
+				{
+					"name": "Matrículas de um Aluno",
+					"request": {
+						"url": "http://localhost:34470/api/Alunos/1/Matriculas",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notas em diciplina",
+			"description": "",
+			"item": [
+				{
+					"name": "Notas de uma matrícula (Boletim de um semestre)",
+					"request": {
+						"url": "http://localhost:34470/api/Boletins/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Serviço - Retificacão de Falta",
+			"description": "",
+			"item": [
+				{
+					"name": "Get RetificacoesFalta localhost",
+					"request": {
+						"url": "http://localhost:34470/api/RetificacoesFalta",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Post RetificacoesFalta localhost erros",
+					"request": {
+						"url": "http://localhost:34470/api/RetificacoesFalta",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \n    \"IdMatricula\": 2,\n    \"IdOfertaGradeDisciplina\": 50,\n    \"DataFalta\": \"2046-06-05T00:00:00\",\n    \"Justificativa\": \"Estava em conferência.\",\n    \"IdStatus\": 1,\n    \"DataRequisicao\": \"2046-06-15T10:14:56.547\",\n    \"Id\": 1\n  }\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Post RetificacoesFalta localhost",
+					"request": {
+						"url": "http://localhost:34470/api/RetificacoesFalta",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \n    \"IdMatricula\": 1,\n    \"IdOfertaGradeDisciplina\": 2,\n    \"DataFalta\": \"2016-05-05T00:00:00\",\n    \"Justificativa\": \"Estava em conferência.\"\n  }\n"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
