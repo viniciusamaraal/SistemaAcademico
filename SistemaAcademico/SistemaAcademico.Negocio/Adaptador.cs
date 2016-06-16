@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Negocio
 {
+    // TODO: Revisar nome da classe Adaptador.
     public class Adaptador : IDisposable
     {
         private readonly IContexto contexto;
@@ -71,6 +72,19 @@ namespace SistemaAcademico.Negocio
             }
         }
 
+        private RepositorioMatricula _repositorioMatricula;
+        public RepositorioMatricula RepositorioMatricula
+        {
+            get
+            {
+                if (this._repositorioMatricula == null)
+                    this._repositorioMatricula = new RepositorioMatricula(contexto);
+
+                return this._repositorioMatricula;
+            }
+        }
+
+
         private RepositorioUsuario _repositorioUsuario;
         public RepositorioUsuario RepositorioUsuario
         {
@@ -83,11 +97,22 @@ namespace SistemaAcademico.Negocio
             }
         }
 
+        private RepositorioAluno _repositorioAluno;
+        public RepositorioAluno RepositorioAluno
+        {
+            get
+            {
+                if (this._repositorioAluno == null)
+                    this._repositorioAluno = new RepositorioAluno(contexto);
+
+                return this._repositorioAluno;
+            }
+        }
+
         internal void SalvarAlteracoes()
         {
             contexto.SalvarAlteracoes();
         }
-
 
         public void Dispose()
         {
@@ -103,7 +128,9 @@ namespace SistemaAcademico.Negocio
                 _repositorioRetificacaoFalta?.Dispose();
                 _repositorioMatriculaAtividade?.Dispose();
                 _repositorioMatriculaOfertaGradeDisciplina?.Dispose();
+                _repositorioMatricula?.Dispose();
                 _repositorioUsuario?.Dispose();
+                _repositorioAluno?.Dispose();
             }
         }
     }

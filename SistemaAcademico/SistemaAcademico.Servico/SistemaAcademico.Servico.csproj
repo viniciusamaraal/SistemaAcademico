@@ -95,6 +95,7 @@
     <Compile Include="Controllers\Base\ControladorCrudDto.cs" />
     <Compile Include="Controllers\Base\ControladorCrud.cs" />
     <Compile Include="Controllers\Base\Controlador.cs" />
+    <Compile Include="Controllers\AlunosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\BoletinsController.cs" />
     <Compile Include="Controllers\DisciplinasController.cs" />

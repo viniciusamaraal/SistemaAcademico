@@ -26,5 +26,10 @@ namespace SistemaAcademico.Negocio.Gerenciador
         {
             return adaptador.RepositorioMatriculaOfertaGradeDisciplina.BuscarPorMatricula(idMatricula);
         }
+
+        public IEnumerable<Matricula> BuscarMatriculas(int idAluno)
+        {
+            return adaptador.RepositorioMatricula.BuscaPorAluno(idAluno);
+        }
     }
 }

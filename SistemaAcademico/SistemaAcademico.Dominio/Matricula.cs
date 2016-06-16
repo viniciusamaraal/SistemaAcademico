@@ -11,6 +11,7 @@ namespace SistemaAcademico.Dominio
     [DataContract]
     public class Matricula : Base.Dominio
     {
+        [DataMember]
         public int Periodo { get; set; }
 
         [ForeignKey(nameof(Aluno))]

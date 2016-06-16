@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Servico
 {
+    // TODO: Revisar nome da classe Adaptador.
     public class Adaptador: IDisposable
     {
         private readonly RegistraErro registrarErro;
@@ -70,6 +71,18 @@ namespace SistemaAcademico.Servico
             }
         }
 
+        private GerenciadorAluno _gerenciadorAluno;
+        public GerenciadorAluno GerenciadorAluno
+        {
+            get
+            {
+                if (this._gerenciadorAluno == null)
+                    this._gerenciadorAluno = new GerenciadorAluno(registrarErro);
+
+                return this._gerenciadorAluno;
+            }
+        }
+
         public void Dispose()
         {
             Dispose(true);
@@ -84,6 +97,7 @@ namespace SistemaAcademico.Servico
                 _gerenciadorRetificacaoFalta?.Dispose();
                 _gerenciadorMatricula?.Dispose();
                 _gerenciadorUsuario?.Dispose();
+                _gerenciadorAluno?.Dispose();
             }
         }
     }
